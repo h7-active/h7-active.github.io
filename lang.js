@@ -1,0 +1,879 @@
+// ── Localization file — Czech (cs) ──
+// All user-facing strings with proper diacritics.
+// To add a new language, duplicate this object and translate.
+
+const cs = {
+  // Nav & Footer
+  nav: {
+    brand: "H7active",
+    koncept: "Koncept",
+    aktivity: "Aktivity",
+    oNas: "O nás",
+    spolupracujeme: "Spolupracujeme",
+  },
+  footer: {
+    brand: "H7active",
+    tagline: "Pohyb pro každého, každý den. 7 hodin týdně ke zdravějšímu a šťastnějšímu životu.",
+    navigace: "Navigace",
+    koncept: "Koncept",
+    kontakt: "Kontakt",
+    konceptH7: "Koncept H7",
+    aktivity: "Aktivity",
+    spolupracujeme: "Spolupracujeme",
+    oNas: "O nás",
+    systemUrovni: "Systém úrovní H0–H8+",
+    sedmPiliru: "7 pilířů zdraví",
+    katalogAktivit: "Katalog aktivit",
+    copyright: "© {year} H7active. Všechna práva vyhrazena.",
+  },
+  back: "← Zpět na hlavní stránku",
+
+  // ── HOME PAGE ──
+  home: {
+    heroBadge: "134 aktivit",
+    heroTitle: "Pohyb pro každého, každý den.",
+    heroDesc: "H7active je sportovní motivační platforma postavená na systému belt úrovní H0–H8+. Najděte svou aktivitu a posuňte se na další level.",
+    heroCTA: "Začít",
+
+    paceTitle: "Vaše tempo, vaše cesta",
+    paceDesc: "K H7 se můžete dopracovat za několik měsíců, ale také za několik let. Záleží na vaší stávající aktivitě, věku, zdraví a odhodlání. Každý krok se počítá.",
+    h0Label: "člověk téměř bez pohybu",
+    h1Label: "1 hodina týdně (9 minut denně)",
+
+    hiwBadge: "3 jednoduché kroky",
+    hiwTitle: "Jak to funguje?",
+    step1Title: "Zjistěte svou úroveň",
+    step1Desc: "Podívejte se na systém úrovní H0 až H8+ a zjistěte, kde se aktuálně nacházíte. Každá úroveň odpovídá jiné časové dotaci pohybu za týden.",
+    step2Title: "Vyberte aktivity",
+    step2Desc: "Z katalogu 134 aktivit si vyberte ty, které vás baví a které se hodí k vašemu životnímu stylu. Nemusíte běhat maratón — stačí rychlá chůze.",
+    step3Title: "Postupně zvyšujte",
+    step3Desc: "Každá úroveň je dosažitelná. Postupné zvyšování je klíč. Z H1 na H2, z H2 na H3 — krok po kroku k lepší kondici a životu.",
+
+    motivTitle: "Motivace",
+    motiv1Title: "Máte nadváhu?",
+    motiv1Desc: "H7 vás dostane zpět do formy postupně a bez tlaku.",
+    motiv2Title: "Málo energie?",
+    motiv2Desc: "Pravidelný drobný pohyb zlepší spánek i náladu už za pár týdnů.",
+    motiv3Title: "Začínat od nuly?",
+    motiv3Desc: "Odhodlání postavit se na start je první malé vítězství.",
+
+    beltsBadge: "White Belt System",
+    beltsTitle: "Začněte svou cestu",
+    beltsDesc: "Není důležité být H7. Důležité je nasadit první pásek a začít.",
+    beltsBottomTitle: "Každý začíná s bílým páskem",
+    beltsBottomDesc: "Váš první krok k H1 je stejně důležitý jako dosažení cílové úrovně H7. Začněte dnes.",
+    beltNames: ["Bílý", "Žlutý", "Oranžový", "Zelený", "Modrý", "Hnědý", "Černý"],
+    beltTimes: ["9 min denně", "17–18 min denně", "26 min denně", "35 min denně", "43 min denně", "52 min denně", "60 min denně"],
+
+    conceptBadge: "Koncept H7active",
+    conceptTitle: "7 hodin jako ideální stav",
+    conceptDesc: "Protahování ani šachy nestačí. Rychlá chůze nebo schody už ano. Nemusíš hned sprintovat. Stačí se hýbat, zadýchat se, zrychlit tep. Udělej první krok. A pak další.",
+    benefit1Title: "Fyzické zdraví",
+    benefit1Desc: "Zlepšení kardiovaskulární kondice, posílení svalů a celková vitalita organismu.",
+    benefit2Title: "Psychická pohoda",
+    benefit2Desc: "Citelné snížení stresu, pročištění mysli a zvýšení emocionální odolnosti.",
+    benefit3Title: "Postupný růst",
+    benefit3Desc: "Respektujeme váš startovní bod. Důležitý je směr a vytvoření návyku.",
+    benefit4Title: "Dlouhověkost",
+    benefit4Desc: "Budování základu pro aktivní, nezávislý a plnohodnotný život ve vyšším věku.",
+
+    navCard1Title: "Koncept H7",
+    navCard1Desc: "7 pilířů zdraví, vědecké základy a cesta ke 100 letům aktivního života",
+    navCard1CTA: "Zjistit více",
+    navCard2Title: "Aktivity",
+    navCard2Desc: "134 aktivit od H0 až po H8+ — najděte ty pravé pro váš aktuální level",
+    navCard2CTA: "Prohlédnout",
+    navCard3Title: "Kdo za tím stojí",
+    navCard3Desc: "Petr Vabroušek a Milan Litvan — zakladatelé, komunita a vize projektu",
+    navCard3CTA: "Poznat tým",
+
+    appBadge: "AI-Driven aplikace",
+    appTitle: "Stáhněte si H7active aplikaci",
+    appDesc: "Váš osobní AI trenér v mobilu. Aplikace využívá pokročilou umělou inteligenci pro vytvoření dokonalé cesty ke zdravějšímu životu.",
+    appFeat1Title: "AI Trenér",
+    appFeat1Desc: "Personalizované plány přizpůsobené jen vám",
+    appFeat2Title: "Real-time sledování",
+    appFeat2Desc: "Zaznamenávejte aktivity a sledujte pokrok okamžitě",
+    appFeat3Title: "Prediktivní analýza",
+    appFeat3Desc: "AI předvídá vaše výsledky a optimalizuje trénink",
+    appNote: "Dostupné zdarma pro iOS 14+ a Android 8+",
+    appPhoneTitle: "H7active App",
+    appPhoneDesc: "Váš AI trenér v kapse",
+
+    ambBadge: "Ambasadoři",
+    ambTitle: "Spolupracujeme",
+    ambDesc: "Spolupracujeme s předními odborníky, lékaři a osobnostmi, kteří věří v sílu pohybu a zdravého životního stylu.",
+    ambCard1Badge: "❤️ Silná žena Kondice",
+    ambCard1Name: "Hana Štefaničová",
+    ambCard1Role: "Atestovaná kardioložka a sportovní lékařka",
+    ambCard1Quote: '\u201EEfektivní sportovní trénink je nejlepší prevence civilizačních chorob a nejzábavnější cesta ke zdravému srdci\u201C',
+    ambCard2Title: "Další partneři",
+    ambCard2Desc: "Připojují se další odborníci a osobnosti, se kterými spolupracujeme",
+    ambCard2CTA: "Brzy více →",
+    ambCard3Title: "Chcete být součástí?",
+    ambCard3Desc: "Pokud sdílíte naši vizi a chcete projekt podpořit, rádi vás přivítáme.",
+    ambCard3CTA: "Zjistit více →",
+
+    founderTitle: "Kdo stojí za H7active?",
+    founderDesc: "Petr Vabroušek a Milan Litvan — dva nadšenci, kteří chtějí změnit svět k lepšímu.",
+    founderCTA: "Poznat zakladatele",
+
+    ctaTitle: "Nečekejte na zázrak.",
+    ctaTitle2: "Začněte dnes.",
+    ctaDesc: "Není to o dokonalosti. Je to o pokroku. O malých krocích, které vedou k velkým změnám. Vaše cesta k lepšímu já začíná právě teď.",
+    ctaCTA: "Začít ještě dnes →",
+    ctaStat1: "H0 → H1", ctaStat1Label: "PRVNÍ VÍTĚZSTVÍ",
+    ctaStat2: "9 min", ctaStat2Label: "DENNĚ STAČÍ",
+    ctaStat3: "∞", ctaStat3Label: "MOŽNOSTÍ ZAČÍT",
+
+    footerBrand: "H7active",
+    footerDesc: "Pohyb pro každého, každý den. 7 hodin týdně ke zdravějšímu a šťastnějšímu životu.",
+    footerCopyright: "© {year} H7active. Všechna práva vyhrazena. Pohyb pro každého, každý den.",
+  },
+
+  // ── O KONCEPTU PAGE ──
+  koncept: {
+    headerBadge: "Filozofie H7active",
+    headerTitle: "Vše o konceptu H7",
+    headerDesc: "Proč 7 hodin pohybu týdně? Jak to funguje? A co dalšího kromě pohybu potřebujete pro dlouhý a zdravý život?",
+
+    conceptBadge: "Koncept H7active",
+    conceptTitle: "7 hodin jako ideální stav",
+    conceptDesc: "Protahování ani šachy nestačí. Rychlá chůze nebo schody už ano. Nemusíš hned sprintovat. Stačí se hýbat, zadýchat se, zrychlit tep. Udělej první krok. A pak další.",
+    benefit1Title: "Fyzické zdraví",
+    benefit1Desc: "Zlepšení kardiovaskulární kondice, posílení svalů a celková vitalita organismu.",
+    benefit2Title: "Psychická pohoda",
+    benefit2Desc: "Citelné snížení stresu, pročištění mysli a zvýšení emocionální odolnosti.",
+    benefit3Title: "Postupný růst",
+    benefit3Desc: "Respektujeme váš startovní bod. Důležitý je směr a vytvoření návyku.",
+    benefit4Title: "Dlouhověkost",
+    benefit4Desc: "Budování základu pro aktivní, nezávislý a plnohodnotný život ve vyšším věku.",
+
+    h2Badge: "Jak funguje H2",
+    h2Title: "Vyberte si svou cestu k 2 hodinám",
+    h2Desc: "Není jeden správný způsob. Vyberte si variantu, která se nejlépe přizpůsobí vašemu životnímu stylu.",
+    h2Recommended: "Nejdoporučovanější",
+    h2Var1Title: "6× 20 min + 1 den volna",
+    h2Var1Highlight: "Šest dnů aktivně, jeden den odpočinek.",
+    h2Var1Desc: "Ideální pro ty, kteří mají rádi denní rutinu, ale potřebují jeden volný den na absolutní regeneraci.",
+    h2Var2Title: "Každý den 17–18 min",
+    h2Var2Highlight: "Nejlepší cesta k nové rutině.",
+    h2Var2Desc: "Konzistentní denní dávka pohybu. Výborné pro vytvoření pevného zdravého návyku bez nutnosti dlouhých bloků.",
+    h2Var3Title: "4× 30 min / 3× 40 min",
+    h2Var3Highlight: "Když už vyrazíte, vydržíte déle.",
+    h2Var3Desc: "Méně často, ale intenzivněji. Skvělé pro ty, kteří mají čas na cvičení jen v určité dny v týdnu.",
+    h2WarningTitle: "⚠️ 60 minut o víkendu nestačí",
+    h2WarningDesc: "Tělo miluje pravidelnost. Rozložte pohyb rovnoměrně během celého týdne pro maximální a dlouhodobé zdravotní benefity. Nárazová víkendová zátěž nekompenzuje celotýdenní sezení.",
+
+    beltTitle: "Postupné kroky od H0 po H7",
+    beltDesc: "Na kterémkoli mezistupni H1–H6 zůstaňte libovolně dlouho. Už jste na tom lépe, než na tom předešlém. Obvykle po pár týdnech přijde sama od sebe nezadržitelná chuť pokročit o stupínek výše.",
+    levels: [
+      { level: "H0", label: "Téměř bez pohybu", hours: "0h", minutes: "0 min", desc: "Minimum fyzické aktivity. Výchozí stav pro mnoho lidí.", activities: "Kancelářská práce, sledování TV, jízda autem" },
+      { level: "H1", label: "První kroky", hours: "1h", minutes: "~9 min", desc: "Začínáte začleňovat pohyb do svého života. Každá minuta navíc se počítá.", activities: "Krátké procházky, ranní protažení, chůze do schodů" },
+      { level: "H2", label: "Základ", hours: "2h", minutes: "~17–18 min", desc: "Pravidelný pohyb se stává součástí vaší každodenní rutiny.", activities: "Svižná chůze, lehké domácí cvičení" },
+      { level: "H3", label: "Tvorba návyku", hours: "3h", minutes: "~26 min", desc: "Pohyb vás už tolik neunavuje, naopak vám dodává energii.", activities: "Kondiční plavání, víkendová turistika, lehčí fitness" },
+      { level: "H4", label: "Aktivní průměr", hours: "4h", minutes: "~35 min", desc: "Zlepšuje se vám spánek i nálada. Zvládáte náročnější výzvy.", activities: "Skupinové lekce, běh, cyklistika" },
+      { level: "H5", label: "Skvělá kondice", hours: "5h", minutes: "~43 min", desc: "Máte výbornou fyzickou kondici. Vaše tělo je zvyklé na pravidelnou zátěž.", activities: "Pravidelný běh, silový trénink, míčové sporty" },
+      { level: "H6", label: "Pokročilý sportovec", hours: "6h", minutes: "~52 min", desc: "Jste ve skvělé formě. Sport je vaší přirozeností a radostí.", activities: "Náročné kruhové tréninky, amatérské závody" },
+      { level: "H7", label: "Zlatý Standard H7", hours: "7h", minutes: "~60 min", desc: "Dosáhli jste cíle konceptu H7! Hodina pohybu denně je pro vás normou.", activities: "Vytrvalostní sporty, pravidelný intenzivní trénink" },
+    ],
+    beltTip: "💡 Tip: Gratulujeme k dosažení H7! Snažte se teď pohybový mix co nejvíce zpestřit, aby tělo dostávalo neustále nové impulsy.",
+    beltRecAct: "Doporučené aktivity: ",
+
+    ageBadge: "Pro koho je H7",
+    ageTitle: "H7 je prostor pro každého",
+    ageDesc: "Cesta k lepšímu zdraví a vitalitě nezná žádné věkové hranice.",
+    ageKids: "Děti",
+    ageKidsDesc: "Základ pro aktivní život. Hravou formou k budování zdravých návyků.",
+    ageAdults: "Dospělí",
+    ageAdultsDesc: "Kompenzace sezení a stresu. Udržení kondice a životní energie.",
+    ageSeniors: "Senioři",
+    ageSeniorsDesc: "Prokrvování, mobilita a síla. Aktivní stárnutí s důstojností a radostí.",
+    ageBannerLine1: "Ať už je vám 8 nebo 80 let,",
+    ageBannerLine2: "každý krok se počítá.",
+
+    pillarsBadge: "Filozofie H7",
+    pillarsTitle: "7 pilířů zdraví",
+    pillarsDesc: "H7 není jen o sportu. Je to moderní, celostní přístup ke zdravému a plnohodnotnému životu, který pevně stojí na sedmi pilířích.",
+    pillars: [
+      { num: "01", title: "Fyzická aktivita", summary: "7h+ pohybu týdně", desc: "Základ systému H7. Pravidelná fyzická aktivita zlepšuje kardiovaskulární zdraví, posiluje svaly a kosti, zvyšuje energii a mentální odolnost." },
+      { num: "02", title: "Kvalitní spánek", summary: "7–9h spánku denně", desc: "Kvalitní spánek je základem regenerace těla i mysli. Pomáhá udržovat hormonální rovnováhu, zlepšuje paměť a koncentraci." },
+      { num: "03", title: "Vyvážená strava", summary: "Pestrost a rovnováha", desc: "Vyvážená strava je palivem pro tělo a mysl. Zaměřte se na pestrost, dostatek bílkovin, zdravých tuků a zeleniny." },
+      { num: "04", title: "Duševní zdraví", summary: "Mindfulness a relaxace", desc: "Péče o duševní zdraví je stejně důležitá jako péče o tělo. Meditace, mindfulness, terapie nebo jednoduše čas na odpočinek." },
+      { num: "05", title: "Sociální vazby", summary: "Komunita a přátelství", desc: "Silné sociální vazby jsou jedním z nejlepších prediktorů dlouhověkosti. Investujte do vztahů, najděte komunitu." },
+      { num: "06", title: "Pitný režim", summary: "2–3 litry denně", desc: "Dostatečná hydratace je zásadní pro správné fungování těla. Voda pomáhá regulovat tělesnou teplotu a transportovat živiny." },
+      { num: "07", title: "Prevence", summary: "Regenerace a kontroly", desc: "Pravidelné zdravotní kontroly, protahování, masáže a fyzioterapie pomáhají předcházet zraněním a udržovat tělo v optimálním stavu." },
+    ],
+
+    ctaTitle: "Nečekejte na zázrak.",
+    ctaTitle2: "Začněte dnes.",
+    ctaDesc: "Není to o dokonalosti. Je to o pokroku. O malých krocích, které vedou k velkým změnám.",
+    ctaCTA: "Začít ještě dnes →",
+  },
+
+  // ── AKTIVITY PAGE ──
+  aktivity: {
+    headerBadge: "134 aktivit",
+    headerTitle: "Katalog aktivit H0–H8+",
+    headerDesc: "Kompletní seznam vhodných aktivit pro každou úroveň. Vyberte si ty, které vás baví a které se hodí k vašemu životu.",
+    countSuffix: " aktivit",
+    levels: {
+      "H0": {
+        label: "Bez pohybu", time: "0h/týden",
+        items: [
+          { name: "Šachy", desc: "Strategická desková hra, ale nepočítá se jako pohyb.", featured: false },
+          { name: "Rybaření", desc: "Relaxační aktivita v přírodě.", featured: false },
+          { name: "Šipky", desc: "Hospodský sport, nezvedne tepovku.", featured: false },
+        ]
+      },
+      "H1": {
+        label: "První kroky", time: "1h/týden",
+        items: [
+          { name: "Rychlá chůze", desc: "Nejpřirozenější forma pohybu. Stačí 10 minut denně.", featured: true },
+          { name: "Chůze do schodů", desc: "Jednoduché cvičení dostupné každému v bytovém domě.", featured: false },
+          { name: "Rekreační kolo", desc: "Pohodová jízda na kole po rovině.", featured: false },
+          { name: "Rekreační plavání", desc: "Šetrné ke kloubům, ideální start.", featured: false },
+          { name: "Jóga", desc: "Protažení, rovnováha a dýchání.", featured: true },
+          { name: "Zahradní práce", desc: "Překvapivě dobrý pohyb — hrabání, kopání, stříhání.", featured: false },
+          { name: "Procházka se psem", desc: "Denní rutina, která vás zvedne ze židle.", featured: false },
+        ]
+      },
+      "H2": {
+        label: "Budování návyku", time: "2h/týden",
+        items: [
+          { name: "Indiánský běh", desc: "Střídání běhu a chůze — skvělý mezikrok k souvislému běhu.", featured: false },
+          { name: "Sjezdové lyžování", desc: "Zimní sport pro celé tělo.", featured: false },
+          { name: "Posilování s vlastní vahou", desc: "Kliky, dřepy, planky — žádné vybavení potřeba.", featured: true },
+          { name: "Volejbal", desc: "Týmový sport ideální pro víkendové party.", featured: false },
+          { name: "Inline brusle", desc: "Skvělé kardio s nízkým dopadem na klouby.", featured: false },
+          { name: "Turistika", desc: "Výlety do přírody s lehkým batůžkem.", featured: false },
+          { name: "Stolní tenis", desc: "Rychlé reflexy a zábava.", featured: false },
+        ]
+      },
+      "H3": {
+        label: "Součást života", time: "3h/týden",
+        items: [
+          { name: "Jogging do 5 km", desc: "Souvislý běh na kratší vzdálenosti.", featured: true },
+          { name: "Kondiční plavání", desc: "Systematické plavání s důrazem na techniku.", featured: false },
+          { name: "Kruhový trénink", desc: "Kombinace cvičení ve vysokém tempu.", featured: false },
+          { name: "Tenis", desc: "Individuální sport vyžadující výdrž i strategii.", featured: false },
+          { name: "Tanec", desc: "Salsa, bachata, swing — pohyb s radostí.", featured: false },
+          { name: "Badminton", desc: "Překvapivě náročný raketový sport.", featured: false },
+          { name: "Běžecký pás", desc: "Běh nebo chůze na páse — ideální v zimě.", featured: false },
+        ]
+      },
+      "H4": {
+        label: "Elita národa", time: "4h/týden",
+        items: [
+          { name: "Běh na 10 km", desc: "Trénink na závodní desítku.", featured: true },
+          { name: "MTB horská kola", desc: "Jízda v terénu vyžadující techniku i sílu.", featured: false },
+          { name: "Sprint triatlon", desc: "Plavání 750m, kolo 20km, běh 5km.", featured: false },
+          { name: "CrossFit", desc: "Funkční fitness na vysoké intenzitě.", featured: true },
+          { name: "Hokej", desc: "Nejrychlejší týmový sport na ledě.", featured: false },
+          { name: "Squash", desc: "Extrémně intenzivní raketový sport.", featured: false },
+          { name: "Posilovna", desc: "Systematický silový trénink.", featured: false },
+          { name: "Fotbal", desc: "Nejpopulárnější týmový sport na světě.", featured: false },
+        ]
+      },
+      "H5": {
+        label: "Systematický trénink", time: "5h/týden",
+        items: [
+          { name: "Běh na 15 km", desc: "Delší tréninky budují vytrvalost.", featured: false },
+          { name: "Silniční cyklistika", desc: "Intervalové jízdy a vytrvalostní kilometry.", featured: false },
+          { name: "Spartan Sprint", desc: "Překážkový závod na 5+ km.", featured: false },
+          { name: "Parkour", desc: "Pohyb městem — skoky, přeskoky, lezení.", featured: false },
+          { name: "Kickbox", desc: "Kombinace boxu a kopů.", featured: false },
+          { name: "Climbing", desc: "Lezení na stěně nebo ve skalách.", featured: false },
+        ]
+      },
+      "H6": {
+        label: "Priorita sport", time: "6h/týden",
+        items: [
+          { name: "Půlmaratón", desc: "21,1 km běh — zlomový moment v tréninku.", featured: true },
+          { name: "Olympijský triatlon", desc: "Plavání 1,5km, kolo 40km, běh 10km.", featured: false },
+          { name: "MTB maratón 50–60 km", desc: "Dlouhé terénní závody na horských kolech.", featured: false },
+          { name: "Skialpinismus", desc: "Náročný zimní sport — výstupy a sjezdy.", featured: false },
+          { name: "Box", desc: "Kompletní bojový sport pro kondici a techniku.", featured: false },
+          { name: "Dálkové plavání 2–3 km", desc: "Systematický vytrvalostní trénink ve vodě.", featured: false },
+        ]
+      },
+      "H7": {
+        label: "Mistr disciplíny", time: "7h/týden",
+        items: [
+          { name: "Maratón", desc: "42,195 km — královská disciplína.", featured: true },
+          { name: "Half Ironman 70.3", desc: "Plavání 1,9km, kolo 90km, běh 21,1km.", featured: false },
+          { name: "Dálkové plavání 5–10 km", desc: "Extrémní vytrvalost ve vodě.", featured: false },
+          { name: "Ultra trail běh", desc: "Terénní běhy přes 50+ km.", featured: false },
+          { name: "Spartan Beast", desc: "Překážkový závod 21+ km se 30+ překážkami.", featured: false },
+        ]
+      },
+      "H8+": {
+        label: "Vrcholový sport", time: "8+h/týden",
+        items: [
+          { name: "Ironman", desc: "Plavání 3,8km, kolo 180km, běh 42,2km — ultimátní výzva.", featured: true },
+          { name: "Ultramaratón", desc: "Běhy přes 100 km a víc.", featured: false },
+          { name: "Ultra cyklistika", desc: "Non-stop cyklistické závody přes 200+ km.", featured: false },
+          { name: "Swimrun", desc: "Kombinace běhu a plavání v otevřené vodě.", featured: false },
+        ]
+      },
+    },
+    tipsTitle: "Tipy pro začátek",
+    tip1Title: "Začněte tam, kde jste",
+    tip1Desc: "Nekupujte rovnou běžecké boty na maratón. Začněte s tím, co vám vyhovuje.",
+    tip2Title: "Vyberte si, co vás baví",
+    tip2Desc: "Nejlepší cvičení je to, které budete dělat. Užijte si každý pohyb.",
+    tip3Title: "Najděte si parťáka",
+    tip3Desc: "Pohyb s kamarádem je zábavnější a motivujícnější.",
+    tip4Title: "Postupujte pomalu",
+    tip4Desc: "Konzistence je důležitější než intenzita. Krok po kroku.",
+    ctaTitle: "Našli jste svou aktivitu?",
+    ctaDesc: "Začněte dnes a posuňte se na další level.",
+    ctaCTA: "Stáhnout aplikaci →",
+  },
+
+  // ── O NÁS PAGE ──
+  oNas: {
+    heroBadge: "Komunita",
+    heroTitle: "O nás a komunitě",
+    heroDesc: "Poznejte lidi za H7active a přidejte se k tisícům ostatních, kteří mění své životy k lepšímu.",
+
+    founderBadge: "Kdo za tím stojí",
+    founderTitle: "Zakladatelé H7active",
+    founderDesc: "Za projektem H7active stojí lidé, kteří věří, že pravidelný pohyb může změnit život.",
+
+    petrName: "Petr Vabroušek",
+    petrRole: "Sportovní vizionář",
+    petrBio: "Profesionální triatlet a ultramaratonec, který má za sebou více než 250 dokončených závodů Ironman. Sám již několik desetiletí tvrdě trénuje 20–35 hodin týdně a je přesvědčen, že podobného efektu pro dlouhodobé zdraví lze dosáhnout už při 1 hodině pohybu denně (H7).",
+    petrCreds: ["250+ dokončených závodů Ironman", "20–35 hodin tréninku týdně", "Několik desetiletí profesionálních zkušeností"],
+
+    milanName: "Milan Litvan",
+    milanRole: "Specialista na digitální marketing",
+    milanBio: "Sportovec a expert v oblasti digitálního marketingu, který propojuje svou vášeň pro pohyb s dovednostmi v online komunikaci. Jeho zkušenosti pomáhají šířit myšlenku H7active.",
+    milanCreds: ["Specialista na digitální marketing", "Aktivní sportovec", "Strategie a růst projektu"],
+
+    hanaBadge: "Odborný garant H7active",
+    hanaName: "MUDr. Hana Štefaničová",
+    hanaRole: "Kardioložka a sportovní lékařka",
+    hanaBio1: "MUDr. Hana Štefaničová je atestovaná kardioložka a sportovní lékařka s více než 20 lety zkušeností v oblasti preventivní medicíny.",
+    hanaBio2: "Pracovala v IKEM (Institut klinické a experimentální medicíny), kde se věnovala kardiovaskulární prevenci a sportovní medicíně.",
+    hanaBio3: "Je přesvědčena o síle pohybu jako nejefektivnější prevence civilizačních onemocnění. Ve své praxi dlouhodobě propojuje moderní kardiologii s principy sportovního tréninku.",
+    hanaCreds: ["Atestace z kardiologie", "Přes 20 let praxe v IKEM", "Odbornice na preventivní kardiologii"],
+
+    otherTitle: "Další členové týmu",
+    teamMembers: [
+      { i: "DR", n: "David Rosenkranz", r: "CEO" },
+      { i: "JP", n: "Jakub Pavelka", r: "Digitální stratég" },
+      { i: "RŠ", n: "Radek Švajcr", r: "Člen týmu" },
+    ],
+    sharedVision: "Petr a Milan spojili své síly s dalšími členy týmu, aby vytvořili globální hnutí motivující miliony lidí ke zdravějšímu a aktivnějšímu životu.",
+
+    supportBadge: "Podpora na vaší cestě",
+    supportTitle: "V tom vám může pomoci",
+    supportDesc: "Vytvořili jsme ekosystém nástrojů a komunitu, která vás podpoří na každém kroku vaší cesty k H7.",
+    support1Title: "AI-Driven aplikace",
+    support1Desc: "Personalizovaný AI trenér, chytré doporučení a pokročilá analýza vašeho pokroku.",
+    support2Title: "Web H7active",
+    support2Desc: "Kompletní průvodce, tipy a inspirace pro váš zdravý životní styl.",
+    support3Title: "FB komunita H7active",
+    support3Desc: "Připojte se k tisícům lidí na stejné cestě, sdílejte úspěchy a motivujte se navzájem.",
+    commCTA: "Připojte se ke komunitě, která vás podpoří",
+    commDesc: "Nečekejte na zázrak. Začněte dnes. Každý krok se počítá.",
+    commBtn: "Začít ještě dnes →",
+
+    aiTitle: "🧠 Totální pecka v AI technologii",
+    aiDesc: "Naše aplikace využívá nejmodernější AI algoritmy pro analýzu vašeho pokroku, predikci výsledků a vytváření personalizovaných doporučení. Každý uživatel dostává unikátní přístup přesně šitý na míru jeho potřebám.",
+    monetTitle: "Monetizace a udržitelnost",
+    monetDesc: "Základní AI funkce zůstávají dostupné zdarma. Premium AI služby a firemní programy nám umožňují neustále vylepšovat technologie.",
+    monetCard1: "Firemní AI wellness",
+    monetCard1Desc: "Komplexní AI-řízené wellness programy pro zaměstnance s pokročilou analytikou.",
+    monetCard2: "Premium AI funkce",
+    monetCard2Desc: "Pokročilé AI analýzy, osobní AI trenér a neomezené konzultace s AI asistentem.",
+
+    contactBadge: "Kontakt",
+    contactTitle: "Spojte se s námi",
+    contactDesc: "Máte dotazy, nápady nebo zpětnou vazbu? Rádi od vás uslyšíme!",
+    contactEmail: "info@h7active.cz",
+    contactEmailNote: "Odpovídáme do 24 hodin",
+    contactFB: "@H7active",
+    contactFBNote: "Připojte se k diskuzi a sdílejte své úspěchy",
+    faqTitle: "Často kladené otázky (FAQ)",
+    faqs: [
+      { q: "Platí se něco za platformu H7active?", a: "Základní aktivity a motivace jsou zdarma. Připravujeme pro vás revoluční aplikaci, která bude obsahovat detailní plány, sledování progresu a osobního kouče." },
+      { q: "Jak poznám, která úroveň je pro mě vhodná?", a: "Začněte tam, kde se cítíte pohodlně. Pokud vůbec nesportujete, ideální start je H0. Zkuste si projít seznam aktivit pro jednotlivé úrovně v našem katalogu." },
+      { q: "Kde najdu vaši komunitu?", a: "Komunita žije na našich sociálních sítích, primárně ve Facebookové skupině H7active, kde s námi sdílíte své pokroky a získáte podporu od ostatních." },
+      { q: "Můžu do seznamu přidat vlastní aktivitu?", a: "Ano! Katalog aktivit neustále rozšiřujeme na základě zpětné vazby od komunity. Napište nám a my vaši aktivitu po konzultaci rádi zařadíme." },
+    ],
+    faqFooter: "Neváhejte se nás zeptat na cokoli dalšího e-mailem.",
+  },
+
+  // ── AMBASADOŘI PAGE ──
+  ambasadori: {
+    headerBadge: "Spolupracujeme",
+    headerTitle: "Lidé za H7active",
+    headerDesc: "Spolupracujeme s předními odborníky z oblasti medicíny, sportu a zdravého životního stylu. Společně sdílíme vizi zdravé společnosti založené na pravidelném pohybu.",
+
+    hanaBadge: "❤️ Silná žena Kondice",
+    hanaSpec: "Kardiovaskulární prevence a sportovní medicína",
+    hanaName: "MUDr. Hana Štefaničová",
+    hanaRole: "Atestovaná kardioložka a sportovní lékařka",
+    hanaQuote: '\u201EEfektivní sportovní trénink je nejlepší prevence civilizačních chorob a nejzábavnější cesta ke zdravému srdci\u201C',
+    hanaBio1: "MUDr. Hana Štefaničová je atestovaná kardioložka a sportovní lékařka s více než 20 lety zkušeností v oblasti preventivní medicíny.",
+    hanaBio2: "Pracovala v IKEM (Institut klinické a experimentální medicíny), kde se věnovala kardiovaskulární prevenci a sportovní medicíně.",
+    hanaBio3: "Je přesvědčena o síle pohybu jako nejefektivnější prevence civilizačních onemocnění. Ve své praxi dlouhodobě propojuje moderní kardiologii s principy sportovního tréninku.",
+    hanaCreds: ["Atestace z kardiologie", "Atestace ze sportovní medicíny", "Přes 20 let praxe v IKEM", "Odbornice na preventivní kardiologii", "Propagátorka zdravého životního stylu"],
+
+    joinTitle: "Chcete být součástí projektu?",
+    joinDesc: "Hledáme další odborníky a osobnosti, které by chtěly podpořit naši vizi zdravé společnosti založené na pravidelném pohybu.",
+    joinCTA: "Kontaktujte nás →",
+    partnersTitle: "Partneři projektu",
+    partnersDesc: "Brzy představíme naše partnery, kteří podporují H7active.",
+    partnerPlaceholder: "Logo partnera",
+  },
+};
+
+// ── English (en) ──
+const en = {
+  nav: {
+    brand: "H7active",
+    koncept: "Concept",
+    aktivity: "Activities",
+    oNas: "About us",
+    spolupracujeme: "Partners",
+  },
+  footer: {
+    brand: "H7active",
+    tagline: "Movement for everyone, every day. 7 hours per week for a healthier and happier life.",
+    navigace: "Navigation",
+    koncept: "Concept",
+    kontakt: "Contact",
+    konceptH7: "H7 Concept",
+    aktivity: "Activities",
+    spolupracujeme: "Partners",
+    oNas: "About us",
+    systemUrovni: "Level System H0–H8+",
+    sedmPiliru: "7 Pillars of Health",
+    katalogAktivit: "Activity Catalog",
+    copyright: "© {year} H7active. All rights reserved.",
+  },
+  back: "← Back to homepage",
+
+  // ── HOME PAGE ──
+  home: {
+    heroBadge: "134 activities",
+    heroTitle: "Movement for everyone, every day.",
+    heroDesc: "H7active is a sports motivation platform built on the belt level system H0–H8+. Find your activity and level up.",
+    heroCTA: "Get started",
+
+    paceTitle: "Your pace, your journey",
+    paceDesc: "You can reach H7 in a few months or a few years. It depends on your current activity, age, health and determination. Every step counts.",
+    h0Label: "a person with almost no movement",
+    h1Label: "1 hour per week (9 minutes per day)",
+
+    hiwBadge: "3 simple steps",
+    hiwTitle: "How does it work?",
+    step1Title: "Find your level",
+    step1Desc: "Look at the level system H0 to H8+ and find out where you currently are. Each level corresponds to a different weekly amount of physical activity.",
+    step2Title: "Choose activities",
+    step2Desc: "Pick from 134 activities the ones you enjoy and that fit your lifestyle. You don't have to run a marathon — a brisk walk is enough.",
+    step3Title: "Gradually increase",
+    step3Desc: "Every level is achievable. Gradual progress is the key. From H1 to H2, from H2 to H3 — step by step toward better fitness and life.",
+
+    motivTitle: "Motivation",
+    motiv1Title: "Overweight?",
+    motiv1Desc: "H7 will get you back in shape gradually and without pressure.",
+    motiv2Title: "Low energy?",
+    motiv2Desc: "Regular light movement improves sleep and mood in just a few weeks.",
+    motiv3Title: "Starting from zero?",
+    motiv3Desc: "The determination to step up to the start line is your first small victory.",
+
+    beltsBadge: "White Belt System",
+    beltsTitle: "Start your journey",
+    beltsDesc: "It's not about being H7. It's about putting on your first belt and starting.",
+    beltsBottomTitle: "Everyone starts with a white belt",
+    beltsBottomDesc: "Your first step toward H1 is just as important as reaching the target level H7. Start today.",
+    beltNames: ["White", "Yellow", "Orange", "Green", "Blue", "Brown", "Black"],
+    beltTimes: ["9 min daily", "17–18 min daily", "26 min daily", "35 min daily", "43 min daily", "52 min daily", "60 min daily"],
+
+    conceptBadge: "H7active Concept",
+    conceptTitle: "7 hours as the ideal state",
+    conceptDesc: "Stretching or chess aren't enough. A brisk walk or taking the stairs counts. You don't need to sprint right away. Just move, get your breath going, raise your heart rate. Take the first step. And then the next.",
+    benefit1Title: "Physical health",
+    benefit1Desc: "Improved cardiovascular fitness, stronger muscles and overall body vitality.",
+    benefit2Title: "Mental well-being",
+    benefit2Desc: "Noticeable stress reduction, mental clarity and increased emotional resilience.",
+    benefit3Title: "Gradual growth",
+    benefit3Desc: "We respect your starting point. What matters is the direction and building a habit.",
+    benefit4Title: "Longevity",
+    benefit4Desc: "Building a foundation for an active, independent and fulfilling life in later years.",
+
+    navCard1Title: "H7 Concept",
+    navCard1Desc: "7 pillars of health, scientific foundations and the path to 100 years of active life",
+    navCard1CTA: "Learn more",
+    navCard2Title: "Activities",
+    navCard2Desc: "134 activities from H0 to H8+ — find the right ones for your current level",
+    navCard2CTA: "Browse",
+    navCard3Title: "Who's behind it",
+    navCard3Desc: "Petr Vabroušek and Milan Litvan — founders, community and project vision",
+    navCard3CTA: "Meet the team",
+
+    appBadge: "AI-Driven app",
+    appTitle: "Download the H7active app",
+    appDesc: "Your personal AI coach in your pocket. The app uses advanced artificial intelligence to create the perfect path to a healthier life.",
+    appFeat1Title: "AI Coach",
+    appFeat1Desc: "Personalized plans tailored just for you",
+    appFeat2Title: "Real-time tracking",
+    appFeat2Desc: "Record activities and track progress instantly",
+    appFeat3Title: "Predictive analytics",
+    appFeat3Desc: "AI predicts your results and optimizes training",
+    appNote: "Available free for iOS 14+ and Android 8+",
+    appPhoneTitle: "H7active App",
+    appPhoneDesc: "Your AI coach in your pocket",
+
+    ambBadge: "Ambassadors",
+    ambTitle: "Partners",
+    ambDesc: "We collaborate with leading experts, doctors and personalities who believe in the power of movement and a healthy lifestyle.",
+    ambCard1Badge: "❤️ Strong Woman Fitness",
+    ambCard1Name: "Hana Štefaničová",
+    ambCard1Role: "Board-certified cardiologist and sports physician",
+    ambCard1Quote: '\u201EEffective sports training is the best prevention of lifestyle diseases and the most enjoyable path to a healthy heart\u201C',
+    ambCard2Title: "More partners",
+    ambCard2Desc: "More experts and personalities are joining us in collaboration",
+    ambCard2CTA: "More coming soon →",
+    ambCard3Title: "Want to be part of it?",
+    ambCard3Desc: "If you share our vision and want to support the project, we'd love to welcome you.",
+    ambCard3CTA: "Learn more →",
+
+    founderTitle: "Who's behind H7active?",
+    founderDesc: "Petr Vabroušek and Milan Litvan — two enthusiasts who want to change the world for the better.",
+    founderCTA: "Meet the founders",
+
+    ctaTitle: "Don't wait for a miracle.",
+    ctaTitle2: "Start today.",
+    ctaDesc: "It's not about perfection. It's about progress. About small steps that lead to big changes. Your journey to a better you starts right now.",
+    ctaCTA: "Start today →",
+    ctaStat1: "H0 → H1", ctaStat1Label: "FIRST VICTORY",
+    ctaStat2: "9 min", ctaStat2Label: "DAILY IS ENOUGH",
+    ctaStat3: "∞", ctaStat3Label: "WAYS TO START",
+
+    footerBrand: "H7active",
+    footerDesc: "Movement for everyone, every day. 7 hours per week for a healthier and happier life.",
+    footerCopyright: "© {year} H7active. All rights reserved. Movement for everyone, every day.",
+  },
+
+  // ── CONCEPT PAGE ──
+  koncept: {
+    headerBadge: "H7active Philosophy",
+    headerTitle: "All about the H7 concept",
+    headerDesc: "Why 7 hours of movement per week? How does it work? And what else besides movement do you need for a long and healthy life?",
+
+    conceptBadge: "H7active Concept",
+    conceptTitle: "7 hours as the ideal state",
+    conceptDesc: "Stretching or chess aren't enough. A brisk walk or taking the stairs counts. You don't need to sprint right away. Just move, get your breath going, raise your heart rate. Take the first step. And then the next.",
+    benefit1Title: "Physical health",
+    benefit1Desc: "Improved cardiovascular fitness, stronger muscles and overall vitality.",
+    benefit2Title: "Mental well-being",
+    benefit2Desc: "Noticeable stress reduction, mental clarity and increased emotional resilience.",
+    benefit3Title: "Gradual growth",
+    benefit3Desc: "We respect your starting point. What matters is direction and building a habit.",
+    benefit4Title: "Longevity",
+    benefit4Desc: "Building a foundation for an active, independent and fulfilling life as you age.",
+
+    h2Badge: "How H2 works",
+    h2Title: "Choose your path to 2 hours",
+    h2Desc: "There is no single right way. Choose the option that best fits your lifestyle.",
+    h2Recommended: "Most recommended",
+    h2Var1Title: "6× 20 min + 1 rest day",
+    h2Var1Highlight: "Six days active, one day rest.",
+    h2Var1Desc: "Ideal for those who like a daily routine but need one free day for complete recovery.",
+    h2Var2Title: "Every day 17–18 min",
+    h2Var2Highlight: "The best path to a new routine.",
+    h2Var2Desc: "A consistent daily dose of movement. Excellent for building a solid healthy habit without the need for long blocks.",
+    h2Var3Title: "4× 30 min / 3× 40 min",
+    h2Var3Highlight: "When you go out, you last longer.",
+    h2Var3Desc: "Less often but more intense. Great for those who have time for exercise only on certain days of the week.",
+    h2WarningTitle: "⚠️ 60 minutes on the weekend is not enough",
+    h2WarningDesc: "The body loves regularity. Spread movement evenly throughout the entire week for maximum and long-term health benefits. Weekend-only exercise does not compensate for sitting all week.",
+
+    beltTitle: "Step by step from H0 to H7",
+    beltDesc: "Stay at any intermediate level H1–H6 for as long as you like. You're already better off than at the previous one. Usually after a few weeks, an irresistible urge to advance one step higher comes naturally.",
+    levels: [
+      { level: "H0", label: "Almost no movement", hours: "0h", minutes: "0 min", desc: "Minimum physical activity. The starting point for many people.", activities: "Office work, watching TV, driving" },
+      { level: "H1", label: "First steps", hours: "1h", minutes: "~9 min", desc: "You are starting to incorporate movement into your life. Every extra minute counts.", activities: "Short walks, morning stretching, taking the stairs" },
+      { level: "H2", label: "Foundation", hours: "2h", minutes: "~17–18 min", desc: "Regular movement is becoming part of your daily routine.", activities: "Brisk walking, light home exercises" },
+      { level: "H3", label: "Building a habit", hours: "3h", minutes: "~26 min", desc: "Movement no longer tires you as much; instead it gives you energy.", activities: "Fitness swimming, weekend hiking, light fitness" },
+      { level: "H4", label: "Active average", hours: "4h", minutes: "~35 min", desc: "Your sleep and mood are improving. You can handle tougher challenges.", activities: "Group classes, running, cycling" },
+      { level: "H5", label: "Great fitness", hours: "5h", minutes: "~43 min", desc: "You have excellent physical fitness. Your body is used to regular exercise.", activities: "Regular running, strength training, ball sports" },
+      { level: "H6", label: "Advanced athlete", hours: "6h", minutes: "~52 min", desc: "You are in great shape. Sport is your nature and joy.", activities: "Demanding circuit training, amateur races" },
+      { level: "H7", label: "Golden Standard H7", hours: "7h", minutes: "~60 min", desc: "You have reached the H7 concept goal! One hour of movement per day is your norm.", activities: "Endurance sports, regular intensive training" },
+    ],
+    beltTip: "💡 Tip: Congratulations on reaching H7! Now try to diversify your movement mix as much as possible so your body keeps receiving new stimuli.",
+    beltRecAct: "Recommended activities: ",
+
+    ageBadge: "Who is H7 for",
+    ageTitle: "H7 is a space for everyone",
+    ageDesc: "The path to better health and vitality knows no age limits.",
+    ageKids: "Children",
+    ageKidsDesc: "A foundation for an active life. Building healthy habits through play.",
+    ageAdults: "Adults",
+    ageAdultsDesc: "Compensating for sitting and stress. Maintaining fitness and life energy.",
+    ageSeniors: "Seniors",
+    ageSeniorsDesc: "Circulation, mobility and strength. Active aging with dignity and joy.",
+    ageBannerLine1: "Whether you are 8 or 80,",
+    ageBannerLine2: "every step counts.",
+
+    pillarsBadge: "H7 Philosophy",
+    pillarsTitle: "7 Pillars of Health",
+    pillarsDesc: "H7 is not just about sport. It is a modern, holistic approach to a healthy and fulfilling life, firmly standing on seven pillars.",
+    pillars: [
+      { num: "01", title: "Physical activity", summary: "7h+ movement per week", desc: "The foundation of the H7 system. Regular physical activity improves cardiovascular health, strengthens muscles and bones, boosts energy and mental resilience." },
+      { num: "02", title: "Quality sleep", summary: "7–9h of sleep daily", desc: "Quality sleep is the basis of body and mind recovery. It helps maintain hormonal balance, improves memory and concentration." },
+      { num: "03", title: "Balanced diet", summary: "Variety and balance", desc: "A balanced diet is fuel for the body and mind. Focus on variety, sufficient protein, healthy fats and vegetables." },
+      { num: "04", title: "Mental health", summary: "Mindfulness and relaxation", desc: "Taking care of mental health is just as important as caring for the body. Meditation, mindfulness, therapy or simply time to rest." },
+      { num: "05", title: "Social connections", summary: "Community and friendship", desc: "Strong social bonds are one of the best predictors of longevity. Invest in relationships, find a community." },
+      { num: "06", title: "Hydration", summary: "2–3 liters daily", desc: "Adequate hydration is essential for proper body function. Water helps regulate body temperature and transport nutrients." },
+      { num: "07", title: "Prevention", summary: "Recovery and check-ups", desc: "Regular health check-ups, stretching, massages and physiotherapy help prevent injuries and keep the body in optimal condition." },
+    ],
+
+    ctaTitle: "Don't wait for a miracle.",
+    ctaTitle2: "Start today.",
+    ctaDesc: "It's not about perfection. It's about progress. About small steps that lead to big changes.",
+    ctaCTA: "Start today →",
+  },
+
+  // ── ACTIVITIES PAGE ──
+  aktivity: {
+    headerBadge: "134 activities",
+    headerTitle: "Activity Catalog H0–H8+",
+    headerDesc: "A complete list of suitable activities for every level. Choose the ones you enjoy and that fit your life.",
+    countSuffix: " activities",
+    levels: {
+      "H0": {
+        label: "No movement", time: "0h/week",
+        items: [
+          { name: "Chess", desc: "A strategic board game, but it doesn't count as movement.", featured: false },
+          { name: "Fishing", desc: "A relaxing outdoor activity.", featured: false },
+          { name: "Darts", desc: "A pub sport that won't raise your heart rate.", featured: false },
+        ]
+      },
+      "H1": {
+        label: "First steps", time: "1h/week",
+        items: [
+          { name: "Brisk walking", desc: "The most natural form of movement. Just 10 minutes a day.", featured: true },
+          { name: "Stair climbing", desc: "A simple exercise accessible to anyone in an apartment building.", featured: false },
+          { name: "Recreational cycling", desc: "A relaxed bike ride on flat terrain.", featured: false },
+          { name: "Recreational swimming", desc: "Easy on the joints, an ideal start.", featured: false },
+          { name: "Yoga", desc: "Stretching, balance and breathing.", featured: true },
+          { name: "Gardening", desc: "Surprisingly good exercise — raking, digging, trimming.", featured: false },
+          { name: "Dog walking", desc: "A daily routine that gets you out of your chair.", featured: false },
+        ]
+      },
+      "H2": {
+        label: "Building a habit", time: "2h/week",
+        items: [
+          { name: "Run-walk intervals", desc: "Alternating running and walking — a great stepping stone to continuous running.", featured: false },
+          { name: "Downhill skiing", desc: "A winter sport for the whole body.", featured: false },
+          { name: "Bodyweight training", desc: "Push-ups, squats, planks — no equipment needed.", featured: true },
+          { name: "Volleyball", desc: "A team sport ideal for weekend get-togethers.", featured: false },
+          { name: "Inline skating", desc: "Great cardio with low impact on joints.", featured: false },
+          { name: "Hiking", desc: "Trips into nature with a light backpack.", featured: false },
+          { name: "Table tennis", desc: "Quick reflexes and fun.", featured: false },
+        ]
+      },
+      "H3": {
+        label: "Part of life", time: "3h/week",
+        items: [
+          { name: "Jogging up to 5 km", desc: "Continuous running at shorter distances.", featured: true },
+          { name: "Fitness swimming", desc: "Systematic swimming with focus on technique.", featured: false },
+          { name: "Circuit training", desc: "A combination of exercises at high tempo.", featured: false },
+          { name: "Tennis", desc: "An individual sport requiring endurance and strategy.", featured: false },
+          { name: "Dancing", desc: "Salsa, bachata, swing — movement with joy.", featured: false },
+          { name: "Badminton", desc: "A surprisingly demanding racquet sport.", featured: false },
+          { name: "Treadmill", desc: "Running or walking on a treadmill — ideal in winter.", featured: false },
+        ]
+      },
+      "H4": {
+        label: "National elite", time: "4h/week",
+        items: [
+          { name: "10 km run", desc: "Training for a competitive 10K.", featured: true },
+          { name: "Mountain biking", desc: "Off-road riding requiring technique and strength.", featured: false },
+          { name: "Sprint triathlon", desc: "Swimming 750m, cycling 20km, running 5km.", featured: false },
+          { name: "CrossFit", desc: "High-intensity functional fitness.", featured: true },
+          { name: "Ice hockey", desc: "The fastest team sport on ice.", featured: false },
+          { name: "Squash", desc: "An extremely intense racquet sport.", featured: false },
+          { name: "Gym", desc: "Systematic strength training.", featured: false },
+          { name: "Football", desc: "The most popular team sport in the world.", featured: false },
+        ]
+      },
+      "H5": {
+        label: "Systematic training", time: "5h/week",
+        items: [
+          { name: "15 km run", desc: "Longer runs build endurance.", featured: false },
+          { name: "Road cycling", desc: "Interval rides and endurance kilometers.", featured: false },
+          { name: "Spartan Sprint", desc: "An obstacle race over 5+ km.", featured: false },
+          { name: "Parkour", desc: "Moving through the city — jumps, vaults, climbing.", featured: false },
+          { name: "Kickboxing", desc: "A combination of boxing and kicks.", featured: false },
+          { name: "Climbing", desc: "Indoor wall climbing or outdoor rock climbing.", featured: false },
+        ]
+      },
+      "H6": {
+        label: "Sport as priority", time: "6h/week",
+        items: [
+          { name: "Half marathon", desc: "21.1 km run — a turning point in training.", featured: true },
+          { name: "Olympic triathlon", desc: "Swimming 1.5km, cycling 40km, running 10km.", featured: false },
+          { name: "MTB marathon 50–60 km", desc: "Long off-road races on mountain bikes.", featured: false },
+          { name: "Ski mountaineering", desc: "A demanding winter sport — ascents and descents.", featured: false },
+          { name: "Boxing", desc: "A complete combat sport for fitness and technique.", featured: false },
+          { name: "Long-distance swimming 2–3 km", desc: "Systematic endurance training in water.", featured: false },
+        ]
+      },
+      "H7": {
+        label: "Master of discipline", time: "7h/week",
+        items: [
+          { name: "Marathon", desc: "42.195 km — the king of disciplines.", featured: true },
+          { name: "Half Ironman 70.3", desc: "Swimming 1.9km, cycling 90km, running 21.1km.", featured: false },
+          { name: "Long-distance swimming 5–10 km", desc: "Extreme endurance in water.", featured: false },
+          { name: "Ultra trail running", desc: "Trail runs over 50+ km.", featured: false },
+          { name: "Spartan Beast", desc: "An obstacle race 21+ km with 30+ obstacles.", featured: false },
+        ]
+      },
+      "H8+": {
+        label: "Elite sport", time: "8+h/week",
+        items: [
+          { name: "Ironman", desc: "Swimming 3.8km, cycling 180km, running 42.2km — the ultimate challenge.", featured: true },
+          { name: "Ultramarathon", desc: "Runs over 100 km and more.", featured: false },
+          { name: "Ultra cycling", desc: "Non-stop cycling races over 200+ km.", featured: false },
+          { name: "Swimrun", desc: "A combination of running and swimming in open water.", featured: false },
+        ]
+      },
+    },
+    tipsTitle: "Tips for getting started",
+    tip1Title: "Start where you are",
+    tip1Desc: "Don't buy marathon running shoes right away. Start with what suits you.",
+    tip2Title: "Choose what you enjoy",
+    tip2Desc: "The best exercise is the one you'll actually do. Enjoy every movement.",
+    tip3Title: "Find a buddy",
+    tip3Desc: "Moving with a friend is more fun and more motivating.",
+    tip4Title: "Progress slowly",
+    tip4Desc: "Consistency is more important than intensity. Step by step.",
+    ctaTitle: "Found your activity?",
+    ctaDesc: "Start today and level up.",
+    ctaCTA: "Download the app →",
+  },
+
+  // ── ABOUT US PAGE ──
+  oNas: {
+    heroBadge: "Community",
+    heroTitle: "About us and our community",
+    heroDesc: "Meet the people behind H7active and join thousands of others who are changing their lives for the better.",
+
+    founderBadge: "Who's behind it",
+    founderTitle: "Founders of H7active",
+    founderDesc: "Behind the H7active project are people who believe that regular movement can change lives.",
+
+    petrName: "Petr Vabroušek",
+    petrRole: "Sports visionary",
+    petrBio: "A professional triathlete and ultramarathon runner who has completed more than 250 Ironman races. He has been training hard 20–35 hours per week for several decades and is convinced that a similar effect on long-term health can be achieved with just 1 hour of movement per day (H7).",
+    petrCreds: ["250+ completed Ironman races", "20–35 hours of training per week", "Several decades of professional experience"],
+
+    milanName: "Milan Litvan",
+    milanRole: "Digital marketing specialist",
+    milanBio: "An athlete and expert in digital marketing who connects his passion for movement with skills in online communication. His experience helps spread the H7active idea.",
+    milanCreds: ["Digital marketing specialist", "Active athlete", "Project strategy and growth"],
+
+    hanaBadge: "H7active expert guarantor",
+    hanaName: "MUDr. Hana Štefaničová",
+    hanaRole: "Cardiologist and sports physician",
+    hanaBio1: "MUDr. Hana Štefaničová is a board-certified cardiologist and sports physician with more than 20 years of experience in preventive medicine.",
+    hanaBio2: "She worked at IKEM (Institute for Clinical and Experimental Medicine), where she focused on cardiovascular prevention and sports medicine.",
+    hanaBio3: "She is convinced of the power of movement as the most effective prevention of lifestyle diseases. In her practice, she has long been combining modern cardiology with sports training principles.",
+    hanaCreds: ["Board certification in cardiology", "Over 20 years of practice at IKEM", "Expert in preventive cardiology"],
+
+    otherTitle: "Other team members",
+    teamMembers: [
+      { i: "DR", n: "David Rosenkranz", r: "CEO" },
+      { i: "JP", n: "Jakub Pavelka", r: "Digital strategist" },
+      { i: "RŠ", n: "Radek Švajcr", r: "Team member" },
+    ],
+    sharedVision: "Petr and Milan joined forces with other team members to create a global movement motivating millions of people toward a healthier and more active life.",
+
+    supportBadge: "Support on your journey",
+    supportTitle: "How we can help you",
+    supportDesc: "We have created an ecosystem of tools and a community to support you at every step of your journey to H7.",
+    support1Title: "AI-Driven app",
+    support1Desc: "A personalized AI coach, smart recommendations and advanced analysis of your progress.",
+    support2Title: "H7active website",
+    support2Desc: "A complete guide, tips and inspiration for your healthy lifestyle.",
+    support3Title: "H7active FB community",
+    support3Desc: "Join thousands of people on the same journey, share your successes and motivate each other.",
+    commCTA: "Join the community that will support you",
+    commDesc: "Don't wait for a miracle. Start today. Every step counts.",
+    commBtn: "Start today →",
+
+    aiTitle: "🧠 Total breakthrough in AI technology",
+    aiDesc: "Our app uses cutting-edge AI algorithms to analyze your progress, predict results and create personalized recommendations. Every user gets a unique approach tailored exactly to their needs.",
+    monetTitle: "Monetization and sustainability",
+    monetDesc: "Basic AI features remain available for free. Premium AI services and corporate programs allow us to continuously improve our technology.",
+    monetCard1: "Corporate AI wellness",
+    monetCard1Desc: "Comprehensive AI-driven wellness programs for employees with advanced analytics.",
+    monetCard2: "Premium AI features",
+    monetCard2Desc: "Advanced AI analyses, a personal AI coach and unlimited consultations with an AI assistant.",
+
+    contactBadge: "Contact",
+    contactTitle: "Get in touch",
+    contactDesc: "Have questions, ideas or feedback? We'd love to hear from you!",
+    contactEmail: "info@h7active.cz",
+    contactEmailNote: "We respond within 24 hours",
+    contactFB: "@H7active",
+    contactFBNote: "Join the discussion and share your successes",
+    faqTitle: "Frequently Asked Questions (FAQ)",
+    faqs: [
+      { q: "Is there a fee for the H7active platform?", a: "Basic activities and motivation are free. We are preparing a revolutionary app that will include detailed plans, progress tracking and a personal coach." },
+      { q: "How do I know which level is right for me?", a: "Start where you feel comfortable. If you don't exercise at all, the ideal start is H0. Try going through the list of activities for each level in our catalog." },
+      { q: "Where can I find your community?", a: "The community lives on our social media, primarily in the H7active Facebook group, where you share your progress and receive support from others." },
+      { q: "Can I add my own activity to the list?", a: "Yes! We continuously expand the activity catalog based on community feedback. Write to us and we'll be happy to include your activity after consultation." },
+    ],
+    faqFooter: "Feel free to ask us anything else by email.",
+  },
+
+  // ── AMBASSADORS PAGE ──
+  ambasadori: {
+    headerBadge: "Partners",
+    headerTitle: "People behind H7active",
+    headerDesc: "We collaborate with leading experts in medicine, sports and healthy lifestyle. Together we share the vision of a healthy society based on regular movement.",
+
+    hanaBadge: "❤️ Strong Woman Fitness",
+    hanaSpec: "Cardiovascular prevention and sports medicine",
+    hanaName: "MUDr. Hana Štefaničová",
+    hanaRole: "Board-certified cardiologist and sports physician",
+    hanaQuote: '\u201EEffective sports training is the best prevention of lifestyle diseases and the most enjoyable path to a healthy heart\u201C',
+    hanaBio1: "MUDr. Hana Štefaničová is a board-certified cardiologist and sports physician with more than 20 years of experience in preventive medicine.",
+    hanaBio2: "She worked at IKEM (Institute for Clinical and Experimental Medicine), where she focused on cardiovascular prevention and sports medicine.",
+    hanaBio3: "She is convinced of the power of movement as the most effective prevention of lifestyle diseases. In her practice, she has long been combining modern cardiology with sports training principles.",
+    hanaCreds: ["Board certification in cardiology", "Board certification in sports medicine", "Over 20 years of practice at IKEM", "Expert in preventive cardiology", "Advocate of a healthy lifestyle"],
+
+    joinTitle: "Want to be part of the project?",
+    joinDesc: "We are looking for more experts and personalities who would like to support our vision of a healthy society based on regular movement.",
+    joinCTA: "Contact us →",
+    partnersTitle: "Project partners",
+    partnersDesc: "We will soon introduce our partners who support H7active.",
+    partnerPlaceholder: "Partner logo",
+  },
+};
+
+// ── Language detection ──
+const SUPPORTED = ["cs", "en"];
+function detectLang() {
+  const stored = localStorage.getItem("h7lang");
+  if (stored && SUPPORTED.includes(stored)) return stored;
+  const browser = navigator.language?.slice(0, 2);
+  return SUPPORTED.includes(browser) ? browser : "cs";
+}
+
+const langs = { cs, en };
+const currentLang = detectLang();
+const t = langs[currentLang];
+t._lang = currentLang;
+t._setLang = (code) => { localStorage.setItem("h7lang", code); location.reload(); };
+t._langs = SUPPORTED;
+
+export default t;
