@@ -80,33 +80,106 @@ new Switcher().set({
 // SECTION 1 — HERO
 // ════════════════════════════════════════════════════════
 
-const heroTitle = new Text(t.home.heroTitle).set({
-  font: FONT, size: "S4", color: WHITE, weight: "900",
-  maxWidth: "700px", pad: [{ t: 16 }],
+const ks = (key, value) => ({ keySet: { key, value } });
+
+const heroBadge = new Text("✨ Personalizováno umělou inteligencí").set({
+  font: FONT, exact: "0.9rem", color: ACCENT, weight: "600",
+  background: "rgba(232,255,0,0.12)", radius: "2rem",
+  pad: [{ t: 8 }, { b: 8 }, { l: 20 }, { r: 20 }],
+  center: true,
+  keySet: { key: "width", value: "fit-content" },
 });
 
-const heroDesc = new Text(t.home.heroDesc).set({
-  font: FONT, exact: "1.15rem", color: "rgba(255,255,255,0.8)",
-  maxWidth: "600px", pad: [{ t: 12 }],
+const heroTitle1 = new Text("Začněte s H7.").set({
+  font: FONT, fluidc: "S2", color: "rgba(255,255,255,0.6)", weight: "800",
+  align: "center", pad: [{ t: 24 }],
 });
 
-const heroCTA = new Link(t.home.heroCTA, "./aktivity.html").set({
-  font: FONT, exact: "1rem", weight: "700",
+const heroTitle2 = new Text(t.home.heroTitle).set({
+  font: FONT, fluidc: "S2", color: WHITE, weight: "900",
+  align: "center",
+});
+
+const heroSub1 = new Text("H7 je tu pro děti, dospělé i seniory.").set({
+  font: FONT, exact: "1.1rem", color: "rgba(255,255,255,0.7)", weight: "400",
+  align: "center", pad: [{ t: 20 }],
+});
+
+const heroSub2 = new Text("Už pár minut pohybu denně změní váš život k lepšímu.").set({
+  font: FONT, exact: "1.1rem", color: "rgba(255,255,255,0.7)", weight: "400",
+  align: "center", pad: [{ t: 4 }],
+});
+
+const heroSub3 = new Text("Stačí jen začít. Opravdu.").set({
+  font: FONT, exact: "1.1rem", color: ACCENT, weight: "600",
+  align: "center", pad: [{ t: 4 }],
+});
+
+const heroCTA1 = new Link("Začni svou cestu →", "./aktivity.html").set({
+  font: FONT, exact: "0.95rem", weight: "700",
   color: PRIMARY, background: ACCENT,
-  pad: [{ t: 14 }, { b: 14 }, { l: 32 }, { r: 32 }],
-  radius: "3rem",
-  removeDecoration: true,
+  pad: [{ t: 14 }, { b: 14 }, { l: 28 }, { r: 28 }],
+  radius: "3rem", removeDecoration: true,
+  mar: [{ l: 12 }, { r: 12 }],
   hover: { background: WHITE, animation: "0.3s ease" },
 });
 
-const heroInner = new Wrapper().set({
-  pad: [{ t: 140 }, { b: 80 }, { l: 40 }, { r: 40 }],
-}).add([heroTitle, heroDesc,
-  new Wrapper().set({ pad: [{ t: 20 }] }).add([heroCTA]),
+const heroCTA2 = new Link("Jak funguje H7", "./o-konceptu.html").set({
+  font: FONT, exact: "0.95rem", weight: "600",
+  color: WHITE, background: "transparent",
+  pad: [{ t: 12 }, { b: 12 }, { l: 24 }, { r: 24 }],
+  radius: "3rem", removeDecoration: true,
+  mar: [{ l: 12 }, { r: 12 }],
+  borderObj: { width: "1.5px", color: "rgba(255,255,255,0.3)" },
+  hover: { background: "rgba(255,255,255,0.1)", animation: "0.3s ease" },
+});
+
+const heroCTA3 = new Link("Stáhněte si aplikaci", "#").set({
+  font: FONT, exact: "0.95rem", weight: "600",
+  color: WHITE, background: "transparent",
+  pad: [{ t: 12 }, { b: 12 }, { l: 24 }, { r: 24 }],
+  radius: "3rem", removeDecoration: true,
+  mar: [{ l: 12 }, { r: 12 }],
+  borderObj: { width: "1.5px", color: "rgba(255,255,255,0.3)" },
+  hover: { background: "rgba(255,255,255,0.1)", animation: "0.3s ease" },
+});
+
+const heroButtons = new FlexRow().set({
+  gap: "2.5rem", justify: "center", pad: [{ t: 40 }, { b: 40 }],
+}).items([heroCTA1, heroCTA2, heroCTA3]);
+heroButtons.set(ks("flexWrap", "wrap"));
+
+// Stats row
+function statCard(icon, value, label) {
+  return new Wrapper().set({
+    background: "rgba(255,255,255,0.06)", radius: "1rem",
+    pad: [{ t: 20 }, { b: 20 }, { l: 24 }, { r: 24 }],
+    mar: [{ l: 8 }, { r: 8 }],
+    keySet: [{ key: "flex", value: "1 1 0" }, { key: "minWidth", value: "140px" }],
+  }).add([
+    new Text(icon).set({ exact: "1.3rem", align: "center", pad: [{ b: 6 }] }),
+    new Text(value).set({ font: FONT, exact: "1.8rem", color: ACCENT, weight: "800", align: "center" }),
+    new Text(label).set({ font: FONT, exact: "0.8rem", color: "rgba(255,255,255,0.6)", weight: "500", align: "center", pad: [{ t: 2 }] }),
+  ]);
+}
+
+const statsRow = new FlexRow().set({
+  gap: "1.5rem", justify: "center", pad: [{ t: 48 }],
+  maxWidth: "800px",
+}).items([
+  statCard("🕐", "7h", "pohybu týdně"),
+  statCard("🛡️", "9", "úrovní fitness"),
+  statCard("📈", "134", "druhů aktivit"),
+  statCard("🔗", "7", "pilířů zdraví"),
 ]);
+statsRow.set(ks("flexWrap", "wrap")).set(ks("marginLeft", "auto")).set(ks("marginRight", "auto"));
+
+const heroInner = new Wrapper().set({
+  pad: [{ t: 100 }, { b: 60 }, { l: 40 }, { r: 40 }],
+}).add([heroBadge, heroTitle1, heroTitle2, heroSub1, heroSub2, heroSub3, heroButtons, statsRow]);
 
 const heroSection = new Wrapper().set({
-  background: `linear-gradient(135deg, rgba(16,75,135,0.85) 0%, rgba(10,50,90,0.9) 100%), url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1600&q=80') center/cover no-repeat`,
+  background: `linear-gradient(180deg, ${DARK_BG} 0%, ${PRIMARY_DK} 100%)`,
   width: "100%",
 }).add([heroInner]);
 
