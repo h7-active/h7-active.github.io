@@ -310,22 +310,22 @@ const pickerLevels = [
   });
 
   const badgeCircle = new Wrapper().set({
-    background: beltColors[selected], radius: "50%", width: "42px", height: "42px",
+    background: beltColors[selected], radius: "50%", width: "48px", height: "48px",
   }).add([detailBadge]);
 
-  const leftSide = flex(new FlexRow().set({ gap: "1.25rem", align: "center" }).items([badgeCircle, detailName]));
+  const leftSide = flex(new FlexRow().set({ gap: "1rem", align: "center" }).items([badgeCircle, detailName]));
 
-  const weeklyLabel = new Text("TÝDNĚ").set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600" });
-  const weeklyIcon = new Text("\u{1F551}").set({ exact: "1.1rem" });
-  const weeklyGroup = new Wrapper().set({}).add([detailWeekly, weeklyLabel]);
-  const weeklyStat = flex(new FlexRow().set({ gap: "0.5rem", align: "center" }).items([weeklyIcon, weeklyGroup]));
+  const weeklyLabel = new Text("TÝDNĚ").set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600", pad: [{ t: 4 }] });
+  const weeklyIcon = new Text("\u{1F551}").set({ exact: "1.3rem" });
+  const weeklyGroup = new Wrapper().set({ pad: [] }).add([detailWeekly, weeklyLabel]);
+  const weeklyStat = flex(new FlexRow().set({ gap: "0.75rem", align: "center" }).items([weeklyIcon, weeklyGroup]));
 
-  const dailyLabel = new Text("DENNĚ").set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600" });
-  const dailyIcon = new Text("\u{1F4C8}").set({ exact: "1.1rem" });
-  const dailyGroup = new Wrapper().set({}).add([detailDaily, dailyLabel]);
-  const dailyStat = flex(new FlexRow().set({ gap: "0.5rem", align: "center" }).items([dailyIcon, dailyGroup]));
+  const dailyLabel = new Text("DENNĚ").set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600", pad: [{ t: 4 }] });
+  const dailyIcon = new Text("\u{1F4C8}").set({ exact: "1.3rem" });
+  const dailyGroup = new Wrapper().set({ pad: [] }).add([detailDaily, dailyLabel]);
+  const dailyStat = flex(new FlexRow().set({ gap: "0.75rem", align: "center" }).items([dailyIcon, dailyGroup]));
 
-  const rightSide = flex(new FlexRow().set({ gap: "2rem", align: "center" }).items([weeklyStat, dailyStat]));
+  const rightSide = flex(new FlexRow().set({ gap: "2.5rem", align: "center" }).items([weeklyStat, dailyStat]));
   rightSide.set(ks("flexShrink", "0"));
   const topRow = flex(new FlexRow().set({ justify: "space-between", align: "center", gap: "1.5rem" }).items([leftSide, rightSide]));
   topRow.set(ks("flexWrap", "wrap"));
@@ -452,57 +452,217 @@ new Wrapper().set({
 ]).render("#mount");
 
 // ════════════════════════════════════════════════════════
-// SEVEN PILLARS
+// SEVEN PILLARS — Static Cards
 // ════════════════════════════════════════════════════════
 
 const pillarColors = [ACCENT, "#60A5FA", "#34D399", "#A78BFA", "#FB923C", "#38BDF8", "#F472B6"];
-
 const pillars = t.koncept.pillars.map((p, i) => ({ ...p, color: pillarColors[i] }));
 
 function pillarCard(p) {
   return new Wrapper().set({
-    background: WHITE, radius: "1.2rem",
+    background: WHITE, radius: "1rem",
     pad: [{ a: 24 }],
-    borderObja: { width: "2px", color: p.color },
-    width: "100%", minHeight: "320px",
+    keySet: [
+      { key: "boxShadow", value: "0 2px 12px rgba(0,0,0,0.06)" },
+      { key: "borderTop", value: `4px solid ${p.color}` },
+    ],
   }).add([
-    new FlexRow().set({ gap: "0.75rem", align: "center" }).items([
-      new Text(p.num).set({ font: FONT, exact: "0.75rem", color: p.color, weight: "800" }),
-      new Text(p.title).set({ font: FONT, exact: "1.1rem", color: GRAY_900, weight: "700" }),
-    ]),
-    new Text(p.summary).set({
-      font: FONT, exact: "0.8rem", color: p.color, weight: "600",
-      background: `${p.color}18`, radius: "1rem",
-      pad: [{ t: 4 }, { b: 4 }, { l: 12 }, { r: 12 }],
-      mar: [{ t: 8 }],
+    new Text(p.title).set({ font: FONT, exact: "1.1rem", color: PRIMARY, weight: "700" }),
+    new Text(p.desc).set({
+      font: FONT, exact: "0.95rem", color: "#666", pad: [{ t: 8 }],
+      keySet: { key: "lineHeight", value: "1.6" },
     }),
-    new Text(p.desc).set({ font: FONT, exact: "0.9rem", color: GRAY_500, pad: [{ t: 12 }] }),
   ]);
 }
 
 new Wrapper().set({
-  background: WHITE,
-  pad: [{ t: 80 }, { b: 80 }, { l: 24 }, { r: 24 }],
+  background: WHITE, pad: [{ t: 60 }, { b: 60 }, { l: 24 }, { r: 24 }],
 }).add([
   new Text(t.koncept.pillarsTitle).set({
-    font: FONT, size: "S4", color: GRAY_900, weight: "800",
-    align: "center", pad: [{ t: 12 }],
+    font: FONT, size: "S3", color: PRIMARY, weight: "900",
+    align: "center",
   }),
   new Text(t.koncept.pillarsDesc).set({
-    font: FONT, exact: "1.05rem", color: GRAY_500, align: "center",
-    maxWidth: "650px", center: true, pad: [{ t: 8 }, { b: 32 }],
+    font: FONT, exact: "1.05rem", color: "#666", align: "center",
+    maxWidth: "700px", center: true, pad: [{ t: 12 }, { b: 32 }],
   }),
-  new Wrapper().set({ maxWidth: "1100px", mboth: true }).add([
-    new FlexGrid().set({
-      gap: "1.25rem", colat: "768px",
-    }).items(pillars.slice(0, 4).map(p => pillarCard(p))),
-  ]),
-  new Wrapper().set({ maxWidth: "1100px", mboth: true, pad: [{ t: 16 }] }).add([
-    new FlexGrid().set({
-      gap: "1.25rem", colat: "768px",
-    }).items(pillars.slice(4).map(p => pillarCard(p))),
-  ]),
+  new FlexGrid().set({ gap: "1.25rem", colat: "768px" }).items(pillars.slice(0, 4).map(p => pillarCard(p))),
+  new Spacer("M2"),
+  new FlexGrid().set({ gap: "1.25rem", colat: "768px" }).items(pillars.slice(4, 7).map(p => pillarCard(p))),
 ]).render("#mount");
+
+// ════════════════════════════════════════════════════════
+// SEVEN PILLARS — Interactive
+// ════════════════════════════════════════════════════════
+
+(() => {
+  const pks = (key, value) => ({ keySet: { key, value } });
+  const pinvis = () => [new Text("\u00A0").set({ exact: "0px", color: "transparent" })];
+
+  const pillarIcons = ["\u2191\u2193", "\u263E", "\u2B22", "\u2B50", "\u2764", "\u2B59", "\u2B21"];
+  const pillarColors = [ACCENT, "#60A5FA", "#34D399", "#A78BFA", "#FB923C", "#38BDF8", "#F472B6"];
+  const pillars = t.koncept.pillars;
+  let selPillar = 0;
+
+  // ── Pill selector row ──
+  const pillRow = new Wrapper().set({
+    pad: [{ t: 32 }, { b: 32 }],
+    keySet: [
+      { key: "display", value: "flex" },
+      { key: "flexWrap", value: "wrap" },
+      { key: "gap", value: "0.75rem" },
+      { key: "justifyContent", value: "center" },
+    ],
+  }).add(pinvis());
+
+  function renderPills() {
+    pillRow.res.innerHTML = "";
+    pillars.forEach((p, i) => {
+      const active = i === selPillar;
+      const pill = new Text(p.title).set({
+        font: FONT, exact: "0.9rem", weight: active ? "700" : "500",
+        color: active ? DARK_BG : "rgba(255,255,255,0.8)",
+        background: active ? ACCENT : "transparent",
+        radius: "0.6rem", cursor: "pointer",
+        pad: [{ t: 10 }, { b: 10 }, { l: 20 }, { r: 20 }],
+        keySet: { key: "border", value: active ? "none" : "1.5px solid rgba(255,255,255,0.25)" },
+        onTap: () => { selPillar = i; renderPills(); renderDetail(); },
+      });
+      pillRow.res.appendChild(pill.res);
+    });
+  }
+
+  // ── Detail card refs ──
+  const detNumBig = new Text("01").set({
+    font: FONT, exact: "8rem", color: "rgba(255,255,255,0.12)", weight: "900",
+  });
+  detNumBig.set(pks("position", "absolute")).set(pks("left", "32px")).set(pks("top", "20px"))
+    .set(pks("lineHeight", "1")).set(pks("pointerEvents", "none"));
+
+  const detIcon = new Wrapper().set({
+    width: "72px", height: "72px", radius: "18px",
+    background: "rgba(255,255,255,0.15)",
+    mar: [{ t: 80 }],
+  }).add([
+    new Text("\u2191\u2193").set({ exact: "1.75rem", align: "center", color: WHITE, pad: [{ t: 20 }] }),
+  ]);
+
+  const detTitle = new Text("Fyzick\u00E1 aktivita").set({
+    font: FONT, exact: "1.75rem", color: WHITE, weight: "800", pad: [{ t: 24 }],
+  });
+
+  const detBadge = new Text("\u2022 7h+ pohybu t\u00FDdn\u011B").set({
+    font: FONT, exact: "0.85rem", color: ACCENT, weight: "600",
+    background: "rgba(0,0,0,0.35)", radius: "2rem",
+    pad: [{ t: 8 }, { b: 8 }, { l: 16 }, { r: 16 }],
+    mar: [{ t: 16 }],
+    keySet: { key: "width", value: "fit-content" },
+  });
+
+  const detDesc = new Text("").set({
+    font: FONT, exact: "1.1rem", color: "rgba(255,255,255,0.75)",
+    keySet: { key: "lineHeight", value: "1.8" },
+  });
+
+  const detCounter = new Text("PIL\u00CD\u0158 01 ZE 07").set({
+    font: FONT, exact: "0.75rem", color: "rgba(255,255,255,0.4)", weight: "600",
+    keySet: { key: "letterSpacing", value: "0.1em" },
+  });
+
+  // Progress bar segments
+  const progressRow = new Wrapper().set({
+    keySet: [
+      { key: "display", value: "flex" },
+      { key: "gap", value: "6px" },
+      { key: "marginTop", value: "8px" },
+    ],
+  }).add(pinvis());
+
+  function renderProgress() {
+    progressRow.res.innerHTML = "";
+    for (let i = 0; i < 7; i++) {
+      const seg = new Wrapper().set({
+        height: "3px",
+        background: i === selPillar ? pillarColors[selPillar] : "rgba(255,255,255,0.15)",
+        radius: "2px",
+        keySet: { key: "flex", value: "1" },
+      }).add(pinvis());
+      progressRow.res.appendChild(seg.res);
+    }
+  }
+
+  // ── Left side of card ──
+  const cardLeft = new Wrapper().set({
+    pad: [{ a: 36 }],
+    keySet: [
+      { key: "flex", value: "1 1 300px" },
+      { key: "position", value: "relative" },
+      { key: "display", value: "flex" },
+      { key: "flexDirection", value: "column" },
+    ],
+  }).add([detNumBig, detIcon, detTitle, detBadge]);
+
+  // ── Right side of card ──
+  const cardRight = new Wrapper().set({
+    pad: [{ a: 36 }],
+    keySet: [
+      { key: "flex", value: "1 1 400px" },
+      { key: "display", value: "flex" },
+      { key: "flexDirection", value: "column" },
+      { key: "justifyContent", value: "space-between" },
+      { key: "borderLeft", value: "1px solid rgba(255,255,255,0.1)" },
+    ],
+  }).add([detDesc, new Wrapper().set({ pad: [{ t: 32 }] }).add([detCounter, progressRow])]);
+
+  const detailCard = new Wrapper().set({
+    background: "linear-gradient(135deg, rgba(120,160,130,0.25) 0%, rgba(80,120,100,0.15) 100%)",
+    radius: "1.5rem", maxWidth: "1100px", mboth: true,
+    keySet: [
+      { key: "display", value: "flex" },
+      { key: "flexWrap", value: "wrap" },
+      { key: "backdropFilter", value: "blur(24px)" },
+      { key: "border", value: "1px solid rgba(255,255,255,0.12)" },
+      { key: "minHeight", value: "360px" },
+      { key: "overflow", value: "hidden" },
+    ],
+  }).add([cardLeft, cardRight]);
+
+  function renderDetail() {
+    const p = pillars[selPillar];
+    const pc = pillarColors[selPillar];
+    const num = String(selPillar + 1).padStart(2, "0");
+
+    detNumBig.res.textContent = num;
+    detIcon.set({ background: `${pc}30` });
+    detIcon.res.firstChild.style.color = pc;
+    detTitle.res.textContent = p.title;
+    detBadge.res.textContent = "\u2022 " + p.summary;
+    detBadge.set({ color: pc, background: `${pc}20` });
+    detDesc.res.textContent = p.desc;
+    detCounter.res.textContent = `PIL\u00CD\u0158 ${num} ZE 07`;
+    renderProgress();
+  }
+
+  // ── Render section ──
+  new Wrapper().set({
+    background: `linear-gradient(180deg, ${PRIMARY} 0%, ${PRIMARY_DK} 100%)`,
+    pad: [{ t: 80 }, { b: 80 }, { l: 24 }, { r: 24 }],
+  }).add([
+    new Text(t.koncept.pillarsTitle).set({
+      font: FONT, size: "S3", color: WHITE, weight: "900",
+      align: "center",
+    }),
+    new Text(t.koncept.pillarsDesc).set({
+      font: FONT, exact: "1.05rem", color: "rgba(255,255,255,0.7)", align: "center",
+      maxWidth: "700px", center: true, pad: [{ t: 12 }, { b: 8 }],
+    }),
+    pillRow,
+    detailCard,
+  ]).render("#mount");
+
+  renderPills();
+  renderDetail();
+})();
 
 // ════════════════════════════════════════════════════════
 // FINAL CTA

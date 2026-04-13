@@ -15,7 +15,7 @@ new Wrapper().set({
   pad: [{ t: 120 }, { b: 60 }, { l: 24 }, { r: 24 }],
   keySet: { key: "background", value: "linear-gradient(180deg, #e8e8e8 0%, #d4d4d4 100%)" },
 }).add([
-  new Text("134 aktivit").set({
+  new Text(t.aktivity.headerBadge).set({
     font: FONT, exact: "0.85rem", weight: "700",
     color: DARK_BG, background: ACCENT,
     radius: "2rem", align: "center",
@@ -23,11 +23,11 @@ new Wrapper().set({
     keySet: { key: "width", value: "fit-content" },
     mboth: true,
   }),
-  new Text("Katalog aktivit H0-H8+").set({
+  new Text(t.aktivity.headerTitle).set({
     font: FONT, size: "S2", color: GRAY_900, weight: "900",
     align: "center", pad: [{ t: 24 }],
   }),
-  new Text("Kompletní seznam vhodných aktivit pro každou úroveň. Vyberte si ty, které vás baví a které se hodí k vašemu životu.").set({
+  new Text(t.aktivity.headerDesc).set({
     font: FONT, exact: "1.15rem", color: GRAY_700, weight: "500",
     align: "center", maxWidth: "650px", center: true, pad: [{ t: 16 }],
   }),
@@ -69,9 +69,9 @@ new Wrapper().set({
       { key: "justifyContent", value: "center" },
     ],
   }).add([
-    statCard("📋", "134", "aktivit v katalogu"),
-    statCard("🏷️", "10", "kategorií"),
-    statCard("📈", "9", "úrovní obtížnosti"),
+    statCard("📋", "134", t.aktivity.stat1),
+    statCard("🏷️", "10", t.aktivity.stat2),
+    statCard("📈", "9", t.aktivity.stat3),
   ]),
 ]).render("#mount");
 
@@ -95,76 +95,61 @@ const levelTextOnBelt = {
   "H4": "#fff", "H5": "#fff", "H6": "#fff", "H7": "#fff", "H8+": "#fff",
 };
 
-const categoryList = ["Všechny kategorie", "Kardio", "Bojové", "Tanec", "Flexibilita", "Ostatní", "Outdoor", "Síla", "Týmové", "Vodní", "Zimní"];
-const intensityLabels = { low: "Nízká", med: "Střední", high: "Vysoká" };
+const categoryList = t.aktivity.categories;
+const intensityLabels = { low: t.aktivity.intLow, med: t.aktivity.intMed, high: t.aktivity.intHigh };
 const intensityColors = { low: "#22C55E", med: "#F59E0B", high: "#EF4444" };
 
-const allActivities = [
-  { name: "Šachy", desc: "Strategická desková hra, ale nepočítá se jako pohyb.", level: "H0", cat: "Ostatní", int: "low" },
-  { name: "Rybaření", desc: "Relaxační aktivita v přírodě.", level: "H0", cat: "Outdoor", int: "low" },
-  { name: "Šipky", desc: "Hospodský sport, nezvedne tepovku.", level: "H0", cat: "Ostatní", int: "low" },
-  { name: "Rychlá chůze", desc: "Nejpřirozenější forma pohybu. Stačí 10 minut denně.", level: "H1", cat: "Kardio", int: "low" },
-  { name: "Chůze do schodů", desc: "Jednoduché cvičení dostupné každému v bytovém domě.", level: "H1", cat: "Kardio", int: "low" },
-  { name: "Rekreační kolo", desc: "Pohodová jízda na kole po rovině.", level: "H1", cat: "Kardio", int: "low" },
-  { name: "Rekreační plavání", desc: "Šetrné ke kloubům, ideální start.", level: "H1", cat: "Vodní", int: "low" },
-  { name: "Jóga", desc: "Protažení, rovnováha a dýchání.", level: "H1", cat: "Flexibilita", int: "low" },
-  { name: "Zahradní práce", desc: "Překvapivě dobrý pohyb — hrabání, kopání, stříhání.", level: "H1", cat: "Ostatní", int: "low" },
-  { name: "Procházka se psem", desc: "Denní rutina, která vás zvedne ze židle.", level: "H1", cat: "Kardio", int: "low" },
-  { name: "Indiánský běh", desc: "Střídání běhu a chůze — skvělý mezikrok.", level: "H2", cat: "Kardio", int: "low" },
-  { name: "Sjezdové lyžování", desc: "Zimní sport pro celé tělo.", level: "H2", cat: "Zimní", int: "med" },
-  { name: "Posilování s vlastní vahou", desc: "Kliky, dřepy, planky — žádné vybavení.", level: "H2", cat: "Síla", int: "low" },
-  { name: "Volejbal", desc: "Týmový sport ideální pro víkendové party.", level: "H2", cat: "Týmové", int: "med" },
-  { name: "Inline brusle", desc: "Skvělé kardio s nízkým dopadem na klouby.", level: "H2", cat: "Kardio", int: "low" },
-  { name: "Turistika", desc: "Výlety do přírody s lehkým batůžkem.", level: "H2", cat: "Outdoor", int: "low" },
-  { name: "Stolní tenis", desc: "Rychlé reflexy a zábava.", level: "H2", cat: "Ostatní", int: "low" },
-  { name: "Jogging do 5 km", desc: "Souvislý běh na kratší vzdálenosti.", level: "H3", cat: "Kardio", int: "med" },
-  { name: "Kondiční plavání", desc: "Systematické plavání s důrazem na techniku.", level: "H3", cat: "Vodní", int: "med" },
-  { name: "Kruhový trénink", desc: "Kombinace cvičení ve vysokém tempu.", level: "H3", cat: "Síla", int: "med" },
-  { name: "Tenis", desc: "Individuální sport vyžadující výdrž i strategii.", level: "H3", cat: "Ostatní", int: "med" },
-  { name: "Tanec", desc: "Salsa, bachata, swing — pohyb s radostí.", level: "H3", cat: "Tanec", int: "med" },
-  { name: "Badminton", desc: "Překvapivě náročný raketový sport.", level: "H3", cat: "Ostatní", int: "med" },
-  { name: "Běžecký pás", desc: "Běh nebo chůze na páse — ideální v zimě.", level: "H3", cat: "Kardio", int: "med" },
-  { name: "Běh na 10 km", desc: "Trénink na závodní desítku.", level: "H4", cat: "Kardio", int: "med" },
-  { name: "MTB horská kola", desc: "Jízda v terénu vyžadující techniku i sílu.", level: "H4", cat: "Outdoor", int: "med" },
-  { name: "Sprint triatlon", desc: "Plavání 750m, kolo 20km, běh 5km.", level: "H4", cat: "Kardio", int: "high" },
-  { name: "CrossFit", desc: "Funkční fitness na vysoké intenzitě.", level: "H4", cat: "Síla", int: "high" },
-  { name: "Hokej", desc: "Nejrychlejší týmový sport na ledě.", level: "H4", cat: "Týmové", int: "high" },
-  { name: "Squash", desc: "Extrémně intenzivní raketový sport.", level: "H4", cat: "Ostatní", int: "high" },
-  { name: "Posilovna", desc: "Systematický silový trénink.", level: "H4", cat: "Síla", int: "med" },
-  { name: "Fotbal", desc: "Nejpopulárnější týmový sport na světě.", level: "H4", cat: "Týmové", int: "med" },
-  { name: "Běh na 15 km", desc: "Delší tréninky budují vytrvalost.", level: "H5", cat: "Kardio", int: "high" },
-  { name: "Silniční cyklistika", desc: "Intervalové jízdy a vytrvalostní kilometry.", level: "H5", cat: "Kardio", int: "high" },
-  { name: "Spartan Sprint", desc: "Překážkový závod na 5+ km.", level: "H5", cat: "Outdoor", int: "high" },
-  { name: "Parkour", desc: "Pohyb městem — skoky, přeskoky, lezení.", level: "H5", cat: "Outdoor", int: "high" },
-  { name: "Kickbox", desc: "Kombinace boxu a kopů.", level: "H5", cat: "Bojové", int: "high" },
-  { name: "Climbing", desc: "Lezení na stěně nebo ve skalách.", level: "H5", cat: "Outdoor", int: "med" },
-  { name: "Půlmaratón", desc: "21,1 km běh — zlomový moment v tréninku.", level: "H6", cat: "Kardio", int: "high" },
-  { name: "Olympijský triatlon", desc: "Plavání 1,5km, kolo 40km, běh 10km.", level: "H6", cat: "Kardio", int: "high" },
-  { name: "MTB maratón 50–60 km", desc: "Dlouhé terénní závody na horských kolech.", level: "H6", cat: "Outdoor", int: "high" },
-  { name: "Skialpinismus", desc: "Náročný zimní sport — výstupy a sjezdy.", level: "H6", cat: "Zimní", int: "high" },
-  { name: "Box", desc: "Kompletní bojový sport pro kondici a techniku.", level: "H6", cat: "Bojové", int: "high" },
-  { name: "Dálkové plavání 2–3 km", desc: "Systematický vytrvalostní trénink ve vodě.", level: "H6", cat: "Vodní", int: "high" },
-  { name: "Maratón", desc: "42,195 km — královská disciplína.", level: "H7", cat: "Kardio", int: "high" },
-  { name: "Half Ironman 70.3", desc: "Plavání 1,9km, kolo 90km, běh 21,1km.", level: "H7", cat: "Kardio", int: "high" },
-  { name: "Dálkové plavání 5–10 km", desc: "Extrémní vytrvalost ve vodě.", level: "H7", cat: "Vodní", int: "high" },
-  { name: "Ultra trail běh", desc: "Terénní běhy přes 50+ km.", level: "H7", cat: "Outdoor", int: "high" },
-  { name: "Spartan Beast", desc: "Překážkový závod 21+ km se 30+ překážkami.", level: "H7", cat: "Outdoor", int: "high" },
-  { name: "Ironman", desc: "Plavání 3,8km, kolo 180km, běh 42,2km.", level: "H8+", cat: "Kardio", int: "high" },
-  { name: "Ultramaratón", desc: "Běhy přes 100 km a víc.", level: "H8+", cat: "Kardio", int: "high" },
-  { name: "Ultra cyklistika", desc: "Non-stop cyklistické závody přes 200+ km.", level: "H8+", cat: "Kardio", int: "high" },
-  { name: "Swimrun", desc: "Kombinace běhu a plavání v otevřené vodě.", level: "H8+", cat: "Vodní", int: "high" },
-];
+// Build allActivities from translation data
+const catKeys = ["all", "cardio", "combat", "dance", "flex", "other", "outdoor", "strength", "team", "water", "winter"];
+const catMap = {};
+categoryList.forEach((name, i) => { catMap[catKeys[i]] = name; });
+
+// Internal category key per activity (matches across languages)
+const actCatKeys = {
+  "H0": ["other", "outdoor", "other"],
+  "H1": ["cardio", "cardio", "cardio", "water", "flex", "outdoor", "outdoor"],
+  "H2": ["cardio", "winter", "strength", "team", "cardio", "outdoor", "other"],
+  "H3": ["cardio", "water", "cardio", "other", "dance", "other", "cardio"],
+  "H4": ["cardio", "outdoor", "cardio", "strength", "team", "other", "strength", "team"],
+  "H5": ["cardio", "cardio", "outdoor", "outdoor", "combat", "outdoor"],
+  "H6": ["cardio", "cardio", "outdoor", "winter", "combat", "water"],
+  "H7": ["cardio", "cardio", "water", "outdoor", "outdoor"],
+  "H8+": ["cardio", "cardio", "cardio", "water"],
+};
+const actIntKeys = {
+  "H0": ["low", "low", "low"],
+  "H1": ["low", "low", "low", "low", "low", "low", "low"],
+  "H2": ["low", "med", "med", "med", "low", "low", "low"],
+  "H3": ["med", "med", "med", "med", "med", "med", "low"],
+  "H4": ["med", "med", "high", "high", "high", "high", "med", "med"],
+  "H5": ["med", "med", "high", "high", "high", "med"],
+  "H6": ["high", "high", "high", "high", "high", "high"],
+  "H7": ["high", "high", "high", "high", "high"],
+  "H8+": ["high", "high", "high", "high"],
+};
+
+const allActivities = [];
+for (const [level, data] of Object.entries(t.aktivity.levels)) {
+  data.items.forEach((item, i) => {
+    allActivities.push({
+      name: item.name, desc: item.desc, level,
+      cat: catMap[actCatKeys[level][i]] || categoryList[0],
+      int: actIntKeys[level][i] || "low",
+    });
+  });
+}
 
 // ════════════════════════════════════════════════════════
 // INTERACTIVE FILTER + GRID — Pure Nodality
 // ════════════════════════════════════════════════════════
 
 (() => {
-  let selectedLevel = "Vše";
-  let selectedCat = "Všechny kategorie";
+  const allLabel = t._lang === "cs" ? "Vše" : "All";
+  let selectedLevel = allLabel;
+  let selectedCat = categoryList[0];
   let searchQuery = "";
 
-  const levelOptions = ["Vše", "H0", "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8+"];
+  const levelOptions = [allLabel, "H0", "H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8+"];
 
   // ── Pill builder ──
   function pill(label, active, onClick) {
@@ -183,7 +168,7 @@ const allActivities = [
   // ── Search bar (Nodality TextField) ──
   const searchField = new TextField().set({
     type: "text",
-    placeholder: "🔍  Hledat aktivitu...",
+    placeholder: "🔍  " + t.aktivity.searchPlaceholder,
   });
   searchField.res.style.cssText = `width:100%;padding:14px 20px;border-radius:2rem;border:1px solid #333;background:#1a1a2e;color:#fff;font-family:${FONT};font-size:1rem;outline:none;box-sizing:border-box;`;
   searchField.res.addEventListener("input", () => { searchQuery = searchField.res.value.toLowerCase(); renderCards(); });
@@ -310,8 +295,8 @@ const allActivities = [
   // ── Render cards ──
   function renderCards() {
     const filtered = allActivities.filter(a => {
-      if (selectedLevel !== "Vše" && a.level !== selectedLevel) return false;
-      if (selectedCat !== "Všechny kategorie" && a.cat !== selectedCat) return false;
+      if (selectedLevel !== allLabel && a.level !== selectedLevel) return false;
+      if (selectedCat !== categoryList[0] && a.cat !== selectedCat) return false;
       if (searchQuery && !a.name.toLowerCase().includes(searchQuery) && !a.desc.toLowerCase().includes(searchQuery)) return false;
       return true;
     });
@@ -346,17 +331,7 @@ const allActivities = [
   const invis = () => [new Text("\u00A0").set({ exact: "0px", color: "transparent" })];
   const flex = (el) => el.set(ks2("display", "flex")).set(ks2("gridTemplateColumns", "unset"));
 
-  const pickerLevels = [
-    { display: "H0", name: "Bez pohybu", hours: "0h", daily: "0 min denn\u011B", desc: "Pokud chod\u00ED\u0161 na ryby, hraje\u0161 \u0161achy nebo si d\u00E1\u0161 v hospod\u011B \u0161ipky, je to sice hezk\u00FD kon\u00ED\u010Dek... ale srdce, pl\u00EDce a svaly ti to zrovna nerozh\u00FDbe." },
-    { display: "H1", name: "Za\u010D\u00E1tek", hours: "1h", daily: "9 min denn\u011B", desc: "N\u011Bjak se za\u010D\u00EDt mus\u00ED \u2013 jdeme na to!" },
-    { display: "H2", name: "Budov\u00E1n\u00ED n\u00E1vyku", hours: "2h", daily: "17\u201318 min denn\u011B", desc: "Super, jdeme d\u00E1l a budujeme konzistenci! Se dv\u011Bma hodinami t\u00FDdn\u011B si m\u016F\u017Ee\u0161 dovolit u\u017E trochu \u010Darovat." },
-    { display: "H3", name: "Sou\u010D\u00E1st \u017Eivota", hours: "3h", daily: "26 min denn\u011B", desc: "Pohyb je pomalu, ale jist\u011B sou\u010D\u00E1st\u00ED tv\u00E9ho \u017Eivota \u2013 riziko srde\u010Dn\u011B c\u00E9vn\u00EDch onemocn\u011Bn\u00ED razantn\u011B kles\u00E1." },
-    { display: "H4", name: "Nadpr\u016Fm\u011Br", hours: "4h", daily: "35 min denn\u011B", desc: "Se zelen\u00FDm p\u00E1skem prost\u011B pat\u0159\u00ED\u0161 mezi elitu n\u00E1roda. Tohle u\u017E nen\u00ED \u0161ol\u00EDch\u00E1n\u00ED, tady u\u017E opravdu tr\u00E9nuje\u0161!" },
-    { display: "H5", name: "Sportovec", hours: "5h", daily: "43 min denn\u011B", desc: "Jsi u\u017E opravdu spor\u0165\u00E1k a jede\u0161 bomby! Tv\u016Fj tr\u00E9nink za\u010D\u00EDn\u00E1 m\u00EDt syst\u00E9m a strukturu." },
-    { display: "H6", name: "Pokro\u010Dil\u00FD", hours: "6h", daily: "52 min denn\u011B", desc: "Sport je pro tebe kon\u00ED\u010Dkem \u010D\u00EDslo jedna a prioritou. Vybral sis del\u0161\u00ED, kvalitn\u011Bj\u0161\u00ED, aktivn\u00ED \u017Eivot." },
-    { display: "H7", name: "Mistr", hours: "7h", daily: "60 min denn\u011B", desc: "\u0160\u0165astn\u00E1, zdrav\u00E1, skv\u011Bl\u00E1 sedmi\u010Dka a \u0161\u0165astn\u00FD a zdrav\u00FD ty! Hodina pohybu denn\u011B je profi p\u0159\u00EDstup." },
-    { display: "H8+", name: "Extr\u00E9m", hours: "8+h", daily: "68+ min denn\u011B", desc: "Pohyb se stal ned\u00EDlnou sou\u010D\u00E1st\u00ED tv\u00E9ho \u017Eivota. S vhodn\u00FDm pl\u00E1nem zvl\u00E1dne\u0161 triatlon i ultramaraton!" },
-  ];
+  const pickerLevels = t.aktivity.picker;
   const TOTAL = pickerLevels.length;
   let selected = 0;
 
@@ -400,7 +375,7 @@ const allActivities = [
     });
     pNames[i] = nm;
 
-    const hr = new Text(l.hours + " týdně").set({
+    const hr = new Text(l.hours + " " + t.aktivity.weekly.toLowerCase()).set({
       font: FONT, exact: "12px",
       color: sel ? bColor : "#666",
       align: "center", pad: [{ t: 2 }],
@@ -458,7 +433,7 @@ const allActivities = [
     badgeCircle.set({ background: selColor });
     detailBadge.set({ color: beltTextColors[selected] });
     detailName.res.textContent = l.name;
-    detailWeekly.res.textContent = l.hours + " týdně";
+    detailWeekly.res.textContent = l.hours + " " + t.aktivity.weekly.toLowerCase();
     detailDaily.res.textContent = l.daily;
     detailDesc.res.textContent = l.desc;
     watermark.res.textContent = l.display;
@@ -493,14 +468,14 @@ const allActivities = [
   const l0 = pickerLevels[selected];
 
   detailBadge = new Text(l0.display).set({
-    font: FONT, exact: "14px", color: beltTextColors[selected], weight: "700", align: "center", pad: [{ t: 10 }],
+    font: FONT, exact: "14px", color: beltTextColors[selected], weight: "700", align: "center",
   });
 
   detailName = new Text(l0.name).set({
     font: FONT, exact: "1.5rem", color: "#fff", weight: "800",
   });
 
-  detailWeekly = new Text(l0.hours + " týdně").set({
+  detailWeekly = new Text(l0.hours + " " + t.aktivity.weekly.toLowerCase()).set({
     font: FONT, exact: "1.05rem", color: "#fff", weight: "700",
   });
 
@@ -509,27 +484,33 @@ const allActivities = [
   });
 
   detailDesc = new Text(l0.desc).set({
-    font: FONT, exact: "0.95rem", color: "#9CA3AF", pad: [{ t: 16 }],
+    font: FONT, exact: "0.95rem", color: "#9CA3AF", pad: [{ t: 24 }],
     maxWidth: "65%",
   });
 
   const badgeCircle = new Wrapper().set({
-    background: beltColors[selected], radius: "50%", width: "42px", height: "42px",
+    background: beltColors[selected], radius: "50%", width: "48px", height: "48px",
+    mar: [{ r: "0.8rem" }],
+    keySet: [
+      { key: "display", value: "flex" },
+      { key: "alignItems", value: "center" },
+      { key: "justifyContent", value: "center" },
+    ],
   }).add([detailBadge]);
 
   const leftSide = flex(new FlexRow().set({ gap: "1.25rem", align: "center" }).items([badgeCircle, detailName]));
 
-  const weeklyLabel = new Text("TÝDNĚ").set({ font: FONT, exact: "10px", color: "#666", weight: "600" });
-  const weeklyIcon = new Text("\u{1F551}").set({ exact: "1.1rem" });
-  const weeklyGroup = new Wrapper().set({}).add([detailWeekly, weeklyLabel]);
-  const weeklyStat = flex(new FlexRow().set({ gap: "0.5rem", align: "center" }).items([weeklyIcon, weeklyGroup]));
+  const weeklyLabel = new Text(t.aktivity.weekly).set({ font: FONT, exact: "10px", color: "#666", weight: "600", pad: [{ t: 4 }] });
+  const weeklyIcon = new Text("\u{1F551}").set({ exact: "1.3rem" });
+  const weeklyGroup = new Wrapper().set({ pad: [{ a: "0.6rem" }] }).add([detailWeekly, weeklyLabel]);
+  const weeklyStat = flex(new FlexRow().set({ gap: "0.75rem", align: "center" }).items([weeklyIcon, weeklyGroup]));
 
-  const dailyLabel = new Text("DENNĚ").set({ font: FONT, exact: "10px", color: "#666", weight: "600" });
-  const dailyIcon = new Text("\u{1F4C8}").set({ exact: "1.1rem" });
-  const dailyGroup = new Wrapper().set({}).add([detailDaily, dailyLabel]);
-  const dailyStat = flex(new FlexRow().set({ gap: "0.5rem", align: "center" }).items([dailyIcon, dailyGroup]));
+  const dailyLabel = new Text(t.aktivity.daily).set({ font: FONT, exact: "10px", color: "#666", weight: "600", pad: [{ t: 4 }] });
+  const dailyIcon = new Text("\u{1F4C8}").set({ exact: "1.3rem" });
+  const dailyGroup = new Wrapper().set({ pad: [{ a: "0.6rem" }] }).add([detailDaily, dailyLabel]);
+  const dailyStat = flex(new FlexRow().set({ gap: "0.75rem", align: "center" }).items([dailyIcon, dailyGroup]));
 
-  const rightSide = flex(new FlexRow().set({ gap: "2rem", align: "center" }).items([weeklyStat, dailyStat]));
+  const rightSide = flex(new FlexRow().set({ gap: "3rem", align: "center" }).items([weeklyStat, dailyStat]));
   rightSide.set(ks2("flexShrink", "0"));
   const topRow = flex(new FlexRow().set({ justify: "space-between", align: "center", gap: "1.5rem" }).items([leftSide, rightSide]));
   topRow.set(ks2("flexWrap", "wrap"));
@@ -588,10 +569,10 @@ const allActivities = [
     background: DARK_BG,
     pad: [{ t: 80 }, { b: 80 }, { l: 24 }, { r: 24 }],
   }).add([
-    new Text("Úrovně pohybu").set({
+    new Text(t.aktivity.pickerTitle).set({
       font: FONT, size: "S4", color: "#fff", weight: "800", align: "center",
     }),
-    new Text("Vyberte si úroveň a zjistěte, co obnáší.").set({
+    new Text(t.aktivity.pickerDesc).set({
       font: FONT, exact: "1.05rem", color: "#9CA3AF", align: "center",
       maxWidth: "700px", center: true, pad: [{ t: 12 }, { b: 40 }],
     }),
