@@ -1,4 +1,4 @@
-import { Text, Link, FlexRow, Wrapper, Spacer, Switcher, MobileBar, DesktopBar } from "nodality";
+import { Text, Link, FlexRow, Wrapper, Spacer, Switcher, MobileBar, DesktopBar, Dropdown, Image } from "nodality";
 import t from "./lang.js";
 
 // ── Brand Tokens ──
@@ -25,14 +25,45 @@ function navLink(text, url) {
   });
 }
 
+function langOption(code, label) {
+  return new Text(label).set({
+    font: FONT, exact: "0.75rem", color: GRAY_900, weight: "600",
+    pad: [{ t: 8 }, { b: 8 }, { l: 14 }, { r: 14 }],
+    cursor: "pointer",
+    onTap: () => t._setLang(code),
+  });
+}
+
 function langToggle() {
-  return new Text(t._lang === "cs" ? "EN" : "CZ").set({
+  const labels = { cs: "CZ 🇨🇿", en: "EN 🇬🇧", sk: "SK 🇸🇰" };
+  const current = new Text(labels[t._lang] || "CZ 🇨🇿").set({
     font: FONT, exact: "0.75rem", color: GRAY_900, weight: "700",
     background: ACCENT, radius: "1rem",
     pad: [{ t: 4 }, { b: 4 }, { l: 10 }, { r: 10 }],
     cursor: "pointer",
-    onTap: () => t._setLang(t._lang === "cs" ? "en" : "cs"),
   });
+
+  const options = new Wrapper().set({ width: "100%" }).add([
+    langOption("cs", "CZ 🇨🇿"),
+    langOption("en", "EN 🇬🇧"),
+    langOption("sk", "SK 🇸🇰"),
+  ]);
+
+  return new Dropdown().set({
+    behaviour: "mouseover",
+    contentWidth: "100px",
+    background: WHITE,
+    radius: "0.5rem",
+  }).add([current, options]);
+}
+
+// ── Nav Brand (logo) ──
+function navBrand() {
+  const img = new Image("./assets/logo-h7-4-HQ.svg").set({
+    width: "36px", height: "36px", cursor: "pointer",
+  });
+  img.res.addEventListener("click", () => { window.location.href = "./index.html"; });
+  return img;
 }
 
 // ── Shared Navigation ──
@@ -44,10 +75,7 @@ export function renderNav() {
         view: new MobileBar().set({
           background: PRIMARY_DK,
           hamburgerColour: WHITE,
-          brand: new Link(t.nav.brand, "./index.html").set({
-            font: FONT, exact: "1.5rem", color: WHITE, weight: "900",
-            removeDecoration: true,
-          }),
+          brand: navBrand(),
         }).add([
           navLink(t.nav.koncept, "./o-konceptu.html"),
           navLink(t.nav.aktivity, "./aktivity.html"),
@@ -61,10 +89,7 @@ export function renderNav() {
           background: PRIMARY_DK,
           pad: [{ t: 16 }, { b: 16 }, { l: 40 }, { r: 40 }],
         }).add([
-          new Link(t.nav.brand, "./index.html").set({
-            font: FONT, exact: "1.5rem", color: WHITE, weight: "900",
-            removeDecoration: true,
-          }),
+          navBrand(),
           new Spacer(true),
           navLink(t.nav.koncept, "./o-konceptu.html"),
           navLink(t.nav.aktivity, "./aktivity.html"),
@@ -143,7 +168,7 @@ export function renderPageHeader(badge, title, subtitle) {
     width: "100%",
   }).add([
     new Text(title).set({
-      font: FONT, size: "S4", color: WHITE, weight: "900",
+      font: FONT, size: "S2", color: WHITE, weight: "900",
       align: "center", pad: [{ t: 16 }],
     }),
     new Text(subtitle).set({

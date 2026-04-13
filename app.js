@@ -1,4 +1,4 @@
-import { Text, Button, Link, Image, FlexRow, Wrapper, Spacer, FlexGrid, Stack, Switcher, MobileBar, DesktopBar, Theme } from "nodality";
+import { Text, Button, Link, Image, FlexRow, Wrapper, Spacer, FlexGrid, Stack, Switcher, MobileBar, DesktopBar, Theme, Dropdown } from "nodality";
 import t from "./lang.js";
 
 // ── Brand Tokens ──
@@ -28,14 +28,44 @@ function navLink(text, url) {
   });
 }
 
+function langOption(code, label) {
+  return new Text(label).set({
+    font: FONT, exact: "0.75rem", color: GRAY_900, weight: "600",
+    pad: [{ t: 8 }, { b: 8 }, { l: 14 }, { r: 14 }],
+    cursor: "pointer",
+    onTap: () => t._setLang(code),
+  });
+}
+
 function langToggle() {
-  return new Text(t._lang === "cs" ? "EN" : "CZ").set({
+  const labels = { cs: "CZ 🇨🇿", en: "EN 🇬🇧", sk: "SK 🇸🇰" };
+  const current = new Text(labels[t._lang] || "CZ 🇨🇿").set({
     font: FONT, exact: "0.75rem", color: GRAY_900, weight: "700",
     background: ACCENT, radius: "1rem",
     pad: [{ t: 4 }, { b: 4 }, { l: 10 }, { r: 10 }],
     cursor: "pointer",
-    onTap: () => t._setLang(t._lang === "cs" ? "en" : "cs"),
   });
+
+  const options = new Wrapper().set({ width: "100%" }).add([
+    langOption("cs", "CZ 🇨🇿"),
+    langOption("en", "EN 🇬🇧"),
+    langOption("sk", "SK 🇸🇰"),
+  ]);
+
+  return new Dropdown().set({
+    behaviour: "mouseover",
+    contentWidth: "100px",
+    background: WHITE,
+    radius: "0.5rem",
+  }).add([current, options]);
+}
+
+function navBrand() {
+  const img = new Image("./assets/logo-h7-4-HQ.svg").set({
+    width: "36px", height: "36px", cursor: "pointer",
+  });
+  img.res.addEventListener("click", () => { window.location.href = "./index.html"; });
+  return img;
 }
 
 new Switcher().set({
@@ -45,10 +75,7 @@ new Switcher().set({
       view: new MobileBar().set({
         background: PRIMARY_DK,
         hamburgerColour: WHITE,
-        brand: new Link(t.nav.brand, "./index.html").set({
-          font: FONT, exact: "1.5rem", color: WHITE, weight: "900",
-          removeDecoration: true,
-        }),
+        brand: navBrand(),
       }).add([
         navLink(t.nav.koncept, "./o-konceptu.html"),
         navLink(t.nav.aktivity, "./aktivity.html"),
@@ -62,10 +89,7 @@ new Switcher().set({
         background: PRIMARY_DK,
         pad: [{ t: 16 }, { b: 16 }, { l: 40 }, { r: 40 }],
       }).add([
-        new Link(t.nav.brand, "./index.html").set({
-          font: FONT, exact: "1.5rem", color: WHITE, weight: "900",
-          removeDecoration: true,
-        }),
+        navBrand(),
         new Spacer(true),
         navLink(t.nav.koncept, "./o-konceptu.html"),
         navLink(t.nav.aktivity, "./aktivity.html"),
@@ -82,7 +106,7 @@ new Switcher().set({
 
 const ks = (key, value) => ({ keySet: { key, value } });
 
-const heroBadge = new Text("✨ Personalizováno umělou inteligencí").set({
+const heroBadge = new Text(t.home.heroAiBadge).set({
   font: FONT, exact: "0.9rem", color: ACCENT, weight: "600",
   background: "rgba(232,255,0,0.12)", radius: "2rem",
   pad: [{ t: 8 }, { b: 8 }, { l: 20 }, { r: 20 }],
@@ -90,7 +114,7 @@ const heroBadge = new Text("✨ Personalizováno umělou inteligencí").set({
   keySet: { key: "width", value: "fit-content" },
 });
 
-const heroTitle1 = new Text("Začněte s H7.").set({
+const heroTitle1 = new Text(t.home.heroTitle1).set({
   font: FONT, fluidc: "S2", color: "rgba(255,255,255,0.6)", weight: "800",
   align: "center", pad: [{ t: 24 }],
 });
@@ -100,22 +124,22 @@ const heroTitle2 = new Text(t.home.heroTitle).set({
   align: "center",
 });
 
-const heroSub1 = new Text("H7 je tu pro děti, dospělé i seniory.").set({
+const heroSub1 = new Text(t.home.heroSub1).set({
   font: FONT, exact: "1.1rem", color: "rgba(255,255,255,0.7)", weight: "400",
   align: "center", pad: [{ t: 20 }],
 });
 
-const heroSub2 = new Text("Už pár minut pohybu denně změní váš život k lepšímu.").set({
+const heroSub2 = new Text(t.home.heroSub2).set({
   font: FONT, exact: "1.1rem", color: "rgba(255,255,255,0.7)", weight: "400",
   align: "center", pad: [{ t: 4 }],
 });
 
-const heroSub3 = new Text("Stačí jen začít. Opravdu.").set({
+const heroSub3 = new Text(t.home.heroSub3).set({
   font: FONT, exact: "1.1rem", color: ACCENT, weight: "600",
   align: "center", pad: [{ t: 4 }],
 });
 
-const heroCTA1 = new Link("Začni svou cestu →", "./aktivity.html").set({
+const heroCTA1 = new Link(t.home.heroCTA1, "./aktivity.html").set({
   font: FONT, exact: "0.95rem", weight: "700",
   color: PRIMARY, background: ACCENT,
   pad: [{ t: 14 }, { b: 14 }, { l: 28 }, { r: 28 }],
@@ -124,7 +148,7 @@ const heroCTA1 = new Link("Začni svou cestu →", "./aktivity.html").set({
   hover: { background: WHITE, animation: "0.3s ease" },
 });
 
-const heroCTA2 = new Link("Jak funguje H7", "./o-konceptu.html").set({
+const heroCTA2 = new Link(t.home.heroCTA2, "./o-konceptu.html").set({
   font: FONT, exact: "0.95rem", weight: "600",
   color: WHITE, background: "transparent",
   pad: [{ t: 12 }, { b: 12 }, { l: 24 }, { r: 24 }],
@@ -134,7 +158,7 @@ const heroCTA2 = new Link("Jak funguje H7", "./o-konceptu.html").set({
   hover: { background: "rgba(255,255,255,0.1)", animation: "0.3s ease" },
 });
 
-const heroCTA3 = new Link("Stáhněte si aplikaci", "#").set({
+const heroCTA3 = new Link(t.home.heroCTA3, "#").set({
   font: FONT, exact: "0.95rem", weight: "600",
   color: WHITE, background: "transparent",
   pad: [{ t: 12 }, { b: 12 }, { l: 24 }, { r: 24 }],
@@ -155,7 +179,7 @@ function statCard(icon, value, label) {
     background: "rgba(255,255,255,0.06)", radius: "1rem",
     pad: [{ t: 20 }, { b: 20 }, { l: 24 }, { r: 24 }],
     mar: [{ l: 8 }, { r: 8 }],
-    keySet: [{ key: "flex", value: "1 1 0" }, { key: "minWidth", value: "140px" }],
+    width: "160px", height: "160px",
   }).add([
     new Text(icon).set({ exact: "1.3rem", align: "center", pad: [{ b: 6 }] }),
     new Text(value).set({ font: FONT, exact: "1.8rem", color: ACCENT, weight: "800", align: "center" }),
@@ -164,13 +188,13 @@ function statCard(icon, value, label) {
 }
 
 const statsRow = new FlexRow().set({
-  gap: "1.5rem", justify: "center", pad: [{ t: 48 }],
+  gap: "1.5rem", justify: "center", align: "stretch", pad: [{ t: 48 }],
   maxWidth: "800px",
 }).items([
-  statCard("🕐", "7h", "pohybu týdně"),
-  statCard("🛡️", "9", "úrovní fitness"),
-  statCard("📈", "134", "druhů aktivit"),
-  statCard("🔗", "7", "pilířů zdraví"),
+  statCard("🕐", t.home.stat1Val, t.home.stat1Label),
+  statCard("🛡️", t.home.stat2Val, t.home.stat2Label),
+  statCard("📈", t.home.stat3Val, t.home.stat3Label),
+  statCard("🔗", t.home.stat4Val, t.home.stat4Label),
 ]);
 statsRow.set(ks("flexWrap", "wrap")).set(ks("marginLeft", "auto")).set(ks("marginRight", "auto"));
 
@@ -179,8 +203,12 @@ const heroInner = new Wrapper().set({
 }).add([heroBadge, heroTitle1, heroTitle2, heroSub1, heroSub2, heroSub3, heroButtons, statsRow]);
 
 const heroSection = new Wrapper().set({
-  background: `linear-gradient(180deg, ${DARK_BG} 0%, ${PRIMARY_DK} 100%)`,
   width: "100%",
+  keySet: [
+    { key: "backgroundImage", value: `linear-gradient(180deg, rgba(7,30,58,0.85) 0%, rgba(10,50,90,0.9) 100%), url('./assets/hero-sports.jpg')` },
+    { key: "backgroundSize", value: "cover" },
+    { key: "backgroundPosition", value: "center" },
+  ],
 }).add([heroInner]);
 
 heroSection.render("#mount");
@@ -538,7 +566,8 @@ function founderCard(initials, name, role, bio, credentials) {
     background: WHITE, radius: "1.5rem",
     pad: [{ a: 28 }],
     borderObj: { width: "1px", color: GRAY_200 },
-    width: "100%",
+    width: "100%", height: "100%",
+    keySet: { key: "boxSizing", value: "border-box" },
   }).add([
     new Wrapper().set({
       background: `linear-gradient(135deg, ${PRIMARY}, ${PRIMARY_DK})`,
@@ -569,12 +598,13 @@ const founderSection = new Wrapper().set({
     align: "center", maxWidth: "600px", center: true, pad: [{ t: 8 }, { b: 40 }],
   }),
   new Wrapper().set({ maxWidth: "1100px", mboth: true }).add([
-    new FlexGrid().set({
-      gap: "1.25rem", colat: "600px",
-    }).items([
+    new FlexRow().set({ gap: "1.25rem", colat: "600px", align: "stretch" }).items([
       founderCard("PV", t.oNas.petrName, t.oNas.petrRole, t.oNas.petrBio, t.oNas.petrCreds),
-      founderCard("HŠ", t.oNas.hanaName, t.oNas.hanaRole, t.oNas.hanaBio1, t.oNas.hanaCreds),
+      founderCard("HŠ", t.oNas.hanaName, t.oNas.hanaRole, t.oNas.hanaBio1 + " " + t.oNas.hanaBio2 + " " + t.oNas.hanaBio3, t.oNas.hanaCreds),
+    ]),
+    new FlexRow().set({ gap: "1.25rem", colat: "600px", align: "stretch", pad: [{ t: "1.25rem" }] }).items([
       founderCard("ML", t.oNas.milanName, t.oNas.milanRole, t.oNas.milanBio, t.oNas.milanCreds),
+      founderCard("FV", t.oNas.filipName, t.oNas.filipRole, t.oNas.filipBio, t.oNas.filipCreds),
     ]),
   ]),
 ]);

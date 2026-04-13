@@ -15,14 +15,20 @@ new Wrapper().set({
   pad: [{ t: 120 }, { b: 60 }, { l: 24 }, { r: 24 }],
   keySet: { key: "background", value: "linear-gradient(180deg, #e8e8e8 0%, #d4d4d4 100%)" },
 }).add([
-  new Text(t.aktivity.headerBadge).set({
-    font: FONT, exact: "0.85rem", weight: "700",
-    color: DARK_BG, background: ACCENT,
-    radius: "2rem", align: "center",
-    pad: [{ t: 6 }, { b: 6 }, { l: 18 }, { r: 18 }],
-    keySet: { key: "width", value: "fit-content" },
-    mboth: true,
-  }),
+  new Wrapper().set({
+    keySet: [
+      { key: "display", value: "flex" },
+      { key: "justifyContent", value: "center" },
+    ],
+  }).add([
+    new Text(t.aktivity.headerBadge).set({
+      font: FONT, exact: "0.85rem", weight: "700",
+      color: DARK_BG, background: ACCENT,
+      radius: "2rem", align: "center",
+      pad: [{ t: 6 }, { b: 6 }, { l: 18 }, { r: 18 }],
+      keySet: { key: "width", value: "fit-content" },
+    }),
+  ]),
   new Text(t.aktivity.headerTitle).set({
     font: FONT, size: "S2", color: GRAY_900, weight: "900",
     align: "center", pad: [{ t: 24 }],
@@ -128,6 +134,155 @@ const actIntKeys = {
   "H8+": ["high", "high", "high", "high"],
 };
 
+// ── Phosphor icon class mapping (Czech activity names → Phosphor icon) ──
+const activityIconMap = {
+  "Chůze": "ph-person-simple-walk",
+  "Svižná chůze": "ph-person-simple-run",
+  "Nordic Walking": "ph-person-simple-run",
+  "Pohyb H7": "ph-heart-half",
+  "Cvičení": "ph-barbell",
+  "Posilování": "ph-barbell",
+  "Kruhový trénink": "ph-barbell",
+  "Schody": "ph-stairs",
+  "Zahrada": "ph-plant",
+  "Hra": "ph-star",
+  "Běh": "ph-person-simple-run",
+  "Atletika": "ph-person-simple-run",
+  "Kolo": "ph-bicycle",
+  "Cyklistika": "ph-bicycle",
+  "Koloběžka": "ph-bicycle",
+  "Jízda": "ph-bicycle",
+  "Trenažér": "ph-bicycle",
+  "Plavání": "ph-swimming-pool",
+  "Vodní chůze": "ph-swimming-pool",
+  "Vodní cvičení": "ph-swimming-pool",
+  "Vodní pólo": "ph-swimming-pool",
+  "Vodní slalom": "ph-swimming-pool",
+  "Vodní sporty": "ph-swimming-pool",
+  "Jóga": "ph-yin-yang",
+  "Tai-chi": "ph-yin-yang",
+  "Protahování": "ph-person-arms-spread",
+  "Gymnastika": "ph-person-arms-spread",
+  "Tanec": "ph-music-note",
+  "Tenis": "ph-tennis-ball",
+  "Squash": "ph-tennis-ball",
+  "Pálkovací hry": "ph-tennis-ball",
+  "Veslování": "ph-boat",
+  "Kanoistika": "ph-boat",
+  "CrossFit": "ph-barbell",
+  "Bojové sporty": "ph-hand-fist",
+  "Bojová umění": "ph-hand-fist",
+  "Zápas": "ph-hand-fist",
+  "Triatlon": "ph-trophy",
+  "Duatlon": "ph-trophy",
+  "Biatlon": "ph-trophy",
+  "Adventure Race": "ph-trophy",
+  "Kombinace": "ph-trophy",
+  "Domácnost": "ph-broom",
+  "Úklid": "ph-broom",
+  "Lyžování": "ph-mountains",
+  "Běžky": "ph-mountains",
+  "Bruslení": "ph-sneaker",
+  "Hokej": "ph-sneaker",
+  "Basketbal": "ph-basketball",
+  "Košíková": "ph-basketball",
+  "Fotbal": "ph-soccer-ball",
+  "Volejbal": "ph-volleyball",
+  "Míčové hry": "ph-volleyball",
+  "Badminton": "ph-shuttlecock",
+  "Stolní tenis": "ph-tennis-ball",
+  "Lezení": "ph-mountains",
+  "Parkour": "ph-mountains",
+  "Pilates": "ph-person-arms-spread",
+  "Aerobik": "ph-person-simple-run",
+  "Švihadlo": "ph-lightning",
+  "Trampolína": "ph-lightning",
+  "Turistika": "ph-mountains",
+  "Golf": "ph-golf",
+  "Frisbee": "ph-star",
+  "Doprava": "ph-star",
+  "Trénink psa": "ph-star",
+  // English fallbacks — simple names
+  "Walking": "ph-person-simple-walk",
+  "Brisk Walking": "ph-person-simple-run",
+  "Brisk walking": "ph-person-simple-run",
+  "Running": "ph-person-simple-run",
+  "Cycling": "ph-bicycle",
+  "Swimming": "ph-swimming-pool",
+  "Yoga": "ph-yin-yang",
+  "Strength Training": "ph-barbell",
+  "Exercise": "ph-barbell",
+  "Hiking": "ph-mountains",
+  "Dancing": "ph-music-note",
+  "Tennis": "ph-tennis-ball",
+  "Rowing": "ph-boat",
+  "CrossFit": "ph-barbell",
+  "Martial Arts": "ph-hand-fist",
+  "Skiing": "ph-mountains",
+  "Skating": "ph-sneaker",
+  "Basketball": "ph-basketball",
+  "Football": "ph-soccer-ball",
+  "Volleyball": "ph-volleyball",
+  "Badminton": "ph-shuttlecock",
+  "Table Tennis": "ph-tennis-ball",
+  "Table tennis": "ph-tennis-ball",
+  "Climbing": "ph-mountains",
+  "Pilates": "ph-person-arms-spread",
+  "Jump Rope": "ph-lightning",
+  "Stretching": "ph-person-arms-spread",
+  "Triathlon": "ph-trophy",
+  "Housework": "ph-broom",
+  "Garden Work": "ph-plant",
+  "H7 Move": "ph-heart-half",
+  "Aerobics": "ph-person-simple-run",
+  "Other": "ph-star",
+  // English compound activity names
+  "Stair climbing": "ph-stairs",
+  "Recreational cycling": "ph-bicycle",
+  "Recreational swimming": "ph-swimming-pool",
+  "Gardening": "ph-plant",
+  "Dog walking": "ph-paw-print",
+  "Run-walk intervals": "ph-person-simple-run",
+  "Downhill skiing": "ph-mountains",
+  "Bodyweight training": "ph-barbell",
+  "Inline skating": "ph-sneaker",
+  "Jogging up to 5 km": "ph-person-simple-run",
+  "Fitness swimming": "ph-swimming-pool",
+  "Circuit training": "ph-barbell",
+  "Treadmill": "ph-person-simple-run",
+  "10 km run": "ph-person-simple-run",
+  "Mountain biking": "ph-bicycle",
+  "Sprint triathlon": "ph-trophy",
+  "Ice hockey": "ph-sneaker",
+  "Gym": "ph-barbell",
+  "15 km run": "ph-person-simple-run",
+  "Road cycling": "ph-bicycle",
+  "Spartan Sprint": "ph-trophy",
+  "Kickboxing": "ph-hand-fist",
+  "Half marathon": "ph-person-simple-run",
+  "Olympic triathlon": "ph-trophy",
+  "MTB marathon 50–60 km": "ph-bicycle",
+  "Ski mountaineering": "ph-mountains",
+  "Boxing": "ph-hand-fist",
+  "Long-distance swimming 2–3 km": "ph-swimming-pool",
+  "Marathon": "ph-person-simple-run",
+  "Half Ironman 70.3": "ph-trophy",
+  "Long-distance swimming 5–10 km": "ph-swimming-pool",
+  "Ultra trail running": "ph-person-simple-run",
+  "Spartan Beast": "ph-trophy",
+  "Ironman": "ph-trophy",
+  "Ultramarathon": "ph-person-simple-run",
+  "Ultra cycling": "ph-bicycle",
+  "Swimrun": "ph-trophy",
+  "Chess": "ph-puzzle-piece",
+  "Fishing": "ph-fish",
+  "Darts": "ph-crosshair",
+};
+
+function getActivityIcon(name) {
+  return "ph " + (activityIconMap[name] || "ph-star");
+}
+
 const allActivities = [];
 for (const [level, data] of Object.entries(t.aktivity.levels)) {
   data.items.forEach((item, i) => {
@@ -226,7 +381,7 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
   }
 
   // ── Count ──
-  const countText = new Text("53 aktivit").set({
+  const countText = new Text(allActivities.length + t.aktivity.countSuffix).set({
     font: FONT, exact: "0.9rem", color: "#9CA3AF",
     align: "center", pad: [{ t: 20 }, { b: 8 }],
   });
@@ -273,6 +428,22 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
       ],
     }).add([lvBadge, catBadge, intBadge]);
 
+    // Phosphor icon element
+    const iconEl = document.createElement("i");
+    iconEl.className = getActivityIcon(a.name);
+    iconEl.style.cssText = `font-size:1.6rem;color:${lvColor};margin-right:12px;flex-shrink:0;`;
+
+    const iconWrapper = new Wrapper().set({
+      keySet: [
+        { key: "display", value: "flex" },
+        { key: "alignItems", value: "center" },
+      ],
+    }).add([
+      new Text(a.name).set({ font: FONT, exact: "1.1rem", color: "#fff", weight: "700" }),
+    ]);
+    // Prepend the icon before the text
+    iconWrapper.res.insertBefore(iconEl, iconWrapper.res.firstChild);
+
     const card = new Wrapper().set({
       background: "#1a1a2e", radius: "1rem",
       pad: [{ a: 24 }],
@@ -281,8 +452,8 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
         { key: "transition", value: "border-color 0.2s" },
       ],
     }).add([
-      new Text(a.name).set({ font: FONT, exact: "1.1rem", color: "#fff", weight: "700", pad: [{ b: 8 }] }),
-      new Text(a.desc).set({ font: FONT, exact: "0.85rem", color: "#9CA3AF" }),
+      iconWrapper,
+      new Text(a.desc).set({ font: FONT, exact: "0.85rem", color: "#9CA3AF", pad: [{ t: 8 }] }),
       tagsRow,
     ]);
 
@@ -301,7 +472,7 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
       return true;
     });
 
-    countText.res.textContent = filtered.length + " aktivit";
+    countText.res.textContent = filtered.length + t.aktivity.countSuffix;
     gridContainer.res.innerHTML = "";
     filtered.forEach(a => {
       gridContainer.res.appendChild(buildCard(a).res);
@@ -353,7 +524,6 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
       font: FONT, exact: sel ? "22px" : "16px",
       color: active ? bTextColor : "#9CA3AF",
       weight: "700", align: "center",
-      pad: [{ t: sel ? 18 : 10 }],
     });
     circleTexts[i] = cText;
 
@@ -365,6 +535,11 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
       borderObj: { width: "2px", color: active ? bColor : "#444" },
       mar: [{ t: sel ? -2 : 6 }],
       mboth: true,
+      keySet: [
+        { key: "display", value: "flex" },
+        { key: "alignItems", value: "center" },
+        { key: "justifyContent", value: "center" },
+      ],
     }).add([cText]);
     circles[i] = circle;
 
@@ -418,7 +593,6 @@ for (const [level, data] of Object.entries(t.aktivity.levels)) {
       circleTexts[i].set({
         color: active ? btc : "#9CA3AF",
         exact: sel ? "22px" : "16px",
-        pad: [{ t: sel ? 18 : 10 }],
       });
 
       pNames[i].set({ color: sel ? bc : past ? "#aaa" : "#666" });

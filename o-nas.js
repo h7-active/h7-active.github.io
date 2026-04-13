@@ -136,6 +136,7 @@ new Wrapper().set({
     }).items([
       founderCard("\uD83C\uDFC3", t.oNas.petrName, t.oNas.petrRole, t.oNas.petrBio, t.oNas.petrCreds),
       founderCard("\uD83D\uDCCA", t.oNas.milanName, t.oNas.milanRole, t.oNas.milanBio, t.oNas.milanCreds),
+      founderCard("\uD83D\uDCBB", t.oNas.filipName, t.oNas.filipRole, t.oNas.filipBio, t.oNas.filipCreds),
     ]),
   ]),
 ]).render("#mount");

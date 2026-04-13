@@ -119,17 +119,7 @@ new Wrapper().set({
 // INTERACTIVE LEVEL PICKER — H0 to H8+
 // ════════════════════════════════════════════════════════
 
-const pickerLevels = [
-  { display: "H0", name: "Bez pohybu", hours: "0h", daily: "0 min denně", desc: "Sedavý životní styl bez pravidelného pohybu. Každá minuta navíc se počítá — začněte třeba 5minutovou procházkou." },
-  { display: "H1", name: "Začátek", hours: "1h", daily: "8–9 min denně", desc: "První kroky k aktivnějšímu životu. 1 hodina týdně — krátká procházka nebo protažení každý den." },
-  { display: "H2", name: "Budování návyku", hours: "2h", daily: "17–18 min denně", desc: "Pohyb se stává součástí vašeho dne. 2 hodiny týdně budují základ pro silnější návyk." },
-  { display: "H3", name: "Součást života", hours: "3h", daily: "25–26 min denně", desc: "Pohyb se stává součástí vašeho života. 3 hodiny týdně vědomé aktivity. Začínáte cítit zlepšení kondice a nálady. Pravidelný rytmus 3–4× týdně." },
-  { display: "H4", name: "Nadprůměr", hours: "4h", daily: "34–35 min denně", desc: "Jste nad průměrem populace. 4 hodiny týdně přináší výrazné zdravotní benefity a viditelné výsledky." },
-  { display: "H5", name: "Sportovec", hours: "5h", daily: "42–43 min denně", desc: "Aktivní sportovní životní styl. 5 hodin týdně — trénujete pravidelně a pohyb je vaše priorita." },
-  { display: "H6", name: "Pokročilý", hours: "6h", daily: "51–52 min denně", desc: "Pokročilá úroveň aktivity. 6 hodin týdně intenzivního pohybu vyžaduje disciplínu a odhodlání." },
-  { display: "H7", name: "Mistr", hours: "7h", daily: "60 min denně", desc: "Cíl H7 — hodina pohybu denně, 7 hodin týdně. Dosáhli jste zlatého standardu aktivního života." },
-  { display: "H8+", name: "Extrém", hours: "8+h", daily: "69+ min denně", desc: "Extrémní úroveň aktivity. Více než 8 hodin týdně — pro profesionální sportovce a nadšence." },
-];
+const pickerLevels = t.koncept.picker;
 
 /*
 // ── OLD RAW DOM LEVEL PICKER (replaced by pure Nodality version below) ──
@@ -169,7 +159,6 @@ const pickerLevels = [
       font: FONT, exact: sel ? "22px" : "16px",
       color: active ? btc : "#9CA3AF",
       weight: "700", align: "center",
-      pad: [{ t: sel ? 18 : 10 }],
     });
     circleTexts[i] = cText;
 
@@ -181,6 +170,11 @@ const pickerLevels = [
       borderObj: { width: "2px", color: active ? bc : GRAY_200 },
       mar: [{ t: sel ? -2 : 6 }],
       mboth: true,
+      keySet: [
+        { key: "display", value: "flex" },
+        { key: "alignItems", value: "center" },
+        { key: "justifyContent", value: "center" },
+      ],
     }).add([cText]);
     circles[i] = circle;
 
@@ -192,7 +186,7 @@ const pickerLevels = [
     });
     names[i] = nm;
 
-    const hr = new Text(l.hours + " týdně").set({
+    const hr = new Text(l.hours + " " + t.koncept.weekly.toLowerCase()).set({
       font: FONT, exact: "12px",
       color: sel ? lc : "#9CA3AF",
       align: "center", pad: [{ t: 2 }],
@@ -236,7 +230,6 @@ const pickerLevels = [
       circleTexts[i].set({
         color: active ? btc : "#9CA3AF",
         exact: sel ? "22px" : "16px",
-        pad: [{ t: sel ? 18 : 10 }],
       });
 
       const lc = beltLabelColors[i];
@@ -252,7 +245,7 @@ const pickerLevels = [
     badgeCircle.set({ background: selColor });
     detailBadge.set({ color: beltTextColors[selected] });
     detailName.res.textContent = l.name;
-    detailWeekly.res.textContent = l.hours + " týdně";
+    detailWeekly.res.textContent = l.hours + " " + t.koncept.weekly.toLowerCase();
     detailDaily.res.textContent = l.daily;
     detailDesc.res.textContent = l.desc;
     watermark.res.textContent = l.display;
@@ -289,14 +282,14 @@ const pickerLevels = [
   const l0 = pickerLevels[selected];
 
   detailBadge = new Text(l0.display).set({
-    font: FONT, exact: "14px", color: beltTextColors[selected], weight: "700", align: "center", pad: [{ t: 10 }],
+    font: FONT, exact: "14px", color: beltTextColors[selected], weight: "700", align: "center",
   });
 
   detailName = new Text(l0.name).set({
     font: FONT, exact: "1.5rem", color: GRAY_900, weight: "800",
   });
 
-  detailWeekly = new Text(l0.hours + " týdně").set({
+  detailWeekly = new Text(l0.hours + " " + t.koncept.weekly.toLowerCase()).set({
     font: FONT, exact: "1.05rem", color: GRAY_900, weight: "700",
   });
 
@@ -311,21 +304,27 @@ const pickerLevels = [
 
   const badgeCircle = new Wrapper().set({
     background: beltColors[selected], radius: "50%", width: "48px", height: "48px",
+    mar: [{ r: "0.8rem" }],
+    keySet: [
+      { key: "display", value: "flex" },
+      { key: "alignItems", value: "center" },
+      { key: "justifyContent", value: "center" },
+    ],
   }).add([detailBadge]);
 
-  const leftSide = flex(new FlexRow().set({ gap: "1rem", align: "center" }).items([badgeCircle, detailName]));
+  const leftSide = flex(new FlexRow().set({ gap: "1.25rem", align: "center" }).items([badgeCircle, detailName]));
 
-  const weeklyLabel = new Text("TÝDNĚ").set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600", pad: [{ t: 4 }] });
+  const weeklyLabel = new Text(t.koncept.weekly).set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600", pad: [{ t: 4 }] });
   const weeklyIcon = new Text("\u{1F551}").set({ exact: "1.3rem" });
-  const weeklyGroup = new Wrapper().set({ pad: [] }).add([detailWeekly, weeklyLabel]);
+  const weeklyGroup = new Wrapper().set({ pad: [{ a: "0.6rem" }] }).add([detailWeekly, weeklyLabel]);
   const weeklyStat = flex(new FlexRow().set({ gap: "0.75rem", align: "center" }).items([weeklyIcon, weeklyGroup]));
 
-  const dailyLabel = new Text("DENNĚ").set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600", pad: [{ t: 4 }] });
+  const dailyLabel = new Text(t.koncept.daily).set({ font: FONT, exact: "10px", color: "#9CA3AF", weight: "600", pad: [{ t: 4 }] });
   const dailyIcon = new Text("\u{1F4C8}").set({ exact: "1.3rem" });
-  const dailyGroup = new Wrapper().set({ pad: [] }).add([detailDaily, dailyLabel]);
+  const dailyGroup = new Wrapper().set({ pad: [{ a: "0.6rem" }] }).add([detailDaily, dailyLabel]);
   const dailyStat = flex(new FlexRow().set({ gap: "0.75rem", align: "center" }).items([dailyIcon, dailyGroup]));
 
-  const rightSide = flex(new FlexRow().set({ gap: "2.5rem", align: "center" }).items([weeklyStat, dailyStat]));
+  const rightSide = flex(new FlexRow().set({ gap: "3rem", align: "center" }).items([weeklyStat, dailyStat]));
   rightSide.set(ks("flexShrink", "0"));
   const topRow = flex(new FlexRow().set({ justify: "space-between", align: "center", gap: "1.5rem" }).items([leftSide, rightSide]));
   topRow.set(ks("flexWrap", "wrap"));
@@ -451,45 +450,7 @@ new Wrapper().set({
   ]),
 ]).render("#mount");
 
-// ════════════════════════════════════════════════════════
-// SEVEN PILLARS — Static Cards
-// ════════════════════════════════════════════════════════
-
 const pillarColors = [ACCENT, "#60A5FA", "#34D399", "#A78BFA", "#FB923C", "#38BDF8", "#F472B6"];
-const pillars = t.koncept.pillars.map((p, i) => ({ ...p, color: pillarColors[i] }));
-
-function pillarCard(p) {
-  return new Wrapper().set({
-    background: WHITE, radius: "1rem",
-    pad: [{ a: 24 }],
-    keySet: [
-      { key: "boxShadow", value: "0 2px 12px rgba(0,0,0,0.06)" },
-      { key: "borderTop", value: `4px solid ${p.color}` },
-    ],
-  }).add([
-    new Text(p.title).set({ font: FONT, exact: "1.1rem", color: PRIMARY, weight: "700" }),
-    new Text(p.desc).set({
-      font: FONT, exact: "0.95rem", color: "#666", pad: [{ t: 8 }],
-      keySet: { key: "lineHeight", value: "1.6" },
-    }),
-  ]);
-}
-
-new Wrapper().set({
-  background: WHITE, pad: [{ t: 60 }, { b: 60 }, { l: 24 }, { r: 24 }],
-}).add([
-  new Text(t.koncept.pillarsTitle).set({
-    font: FONT, size: "S3", color: PRIMARY, weight: "900",
-    align: "center",
-  }),
-  new Text(t.koncept.pillarsDesc).set({
-    font: FONT, exact: "1.05rem", color: "#666", align: "center",
-    maxWidth: "700px", center: true, pad: [{ t: 12 }, { b: 32 }],
-  }),
-  new FlexGrid().set({ gap: "1.25rem", colat: "768px" }).items(pillars.slice(0, 4).map(p => pillarCard(p))),
-  new Spacer("M2"),
-  new FlexGrid().set({ gap: "1.25rem", colat: "768px" }).items(pillars.slice(4, 7).map(p => pillarCard(p))),
-]).render("#mount");
 
 // ════════════════════════════════════════════════════════
 // SEVEN PILLARS — Interactive
@@ -564,7 +525,7 @@ new Wrapper().set({
     keySet: { key: "lineHeight", value: "1.8" },
   });
 
-  const detCounter = new Text("PIL\u00CD\u0158 01 ZE 07").set({
+  const detCounter = new Text(t.koncept.pillarCounter.replace("{num}", "01")).set({
     font: FONT, exact: "0.75rem", color: "rgba(255,255,255,0.4)", weight: "600",
     keySet: { key: "letterSpacing", value: "0.1em" },
   });
@@ -639,7 +600,7 @@ new Wrapper().set({
     detBadge.res.textContent = "\u2022 " + p.summary;
     detBadge.set({ color: pc, background: `${pc}20` });
     detDesc.res.textContent = p.desc;
-    detCounter.res.textContent = `PIL\u00CD\u0158 ${num} ZE 07`;
+    detCounter.res.textContent = t.koncept.pillarCounter.replace("{num}", num);
     renderProgress();
   }
 
